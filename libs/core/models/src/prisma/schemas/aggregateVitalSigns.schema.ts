@@ -1,0 +1,14 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { VitalSignsOrderByWithRelationInputObjectSchema as VitalSignsOrderByWithRelationInputObjectSchema } from './objects/VitalSignsOrderByWithRelationInput.schema';
+import { VitalSignsWhereInputObjectSchema as VitalSignsWhereInputObjectSchema } from './objects/VitalSignsWhereInput.schema';
+import { VitalSignsWhereUniqueInputObjectSchema as VitalSignsWhereUniqueInputObjectSchema } from './objects/VitalSignsWhereUniqueInput.schema';
+import { VitalSignsCountAggregateInputObjectSchema as VitalSignsCountAggregateInputObjectSchema } from './objects/VitalSignsCountAggregateInput.schema';
+import { VitalSignsMinAggregateInputObjectSchema as VitalSignsMinAggregateInputObjectSchema } from './objects/VitalSignsMinAggregateInput.schema';
+import { VitalSignsMaxAggregateInputObjectSchema as VitalSignsMaxAggregateInputObjectSchema } from './objects/VitalSignsMaxAggregateInput.schema';
+import { VitalSignsAvgAggregateInputObjectSchema as VitalSignsAvgAggregateInputObjectSchema } from './objects/VitalSignsAvgAggregateInput.schema';
+import { VitalSignsSumAggregateInputObjectSchema as VitalSignsSumAggregateInputObjectSchema } from './objects/VitalSignsSumAggregateInput.schema';
+
+export const VitalSignsAggregateSchema: z.ZodType<Prisma.VitalSignsAggregateArgs> = z.object({ orderBy: z.union([VitalSignsOrderByWithRelationInputObjectSchema, VitalSignsOrderByWithRelationInputObjectSchema.array()]).optional(), where: VitalSignsWhereInputObjectSchema.optional(), cursor: VitalSignsWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), VitalSignsCountAggregateInputObjectSchema ]).optional(), _min: VitalSignsMinAggregateInputObjectSchema.optional(), _max: VitalSignsMaxAggregateInputObjectSchema.optional(), _avg: VitalSignsAvgAggregateInputObjectSchema.optional(), _sum: VitalSignsSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.VitalSignsAggregateArgs>;
+
+export const VitalSignsAggregateZodSchema = z.object({ orderBy: z.union([VitalSignsOrderByWithRelationInputObjectSchema, VitalSignsOrderByWithRelationInputObjectSchema.array()]).optional(), where: VitalSignsWhereInputObjectSchema.optional(), cursor: VitalSignsWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), VitalSignsCountAggregateInputObjectSchema ]).optional(), _min: VitalSignsMinAggregateInputObjectSchema.optional(), _max: VitalSignsMaxAggregateInputObjectSchema.optional(), _avg: VitalSignsAvgAggregateInputObjectSchema.optional(), _sum: VitalSignsSumAggregateInputObjectSchema.optional() }).strict();

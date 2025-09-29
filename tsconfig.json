@@ -8,6 +8,15 @@
     },
     {
       "path": "./apps/web"
+    },
+    {
+      "path": "./libs/core/models"
+    },
+    {
+      "path": "./libs/prisma/schema"
+    },
+    {
+      "path": "./libs/prisma/client"
     }
   ]
 }

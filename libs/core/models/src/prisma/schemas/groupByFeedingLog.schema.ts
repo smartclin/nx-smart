@@ -1,0 +1,15 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { FeedingLogWhereInputObjectSchema as FeedingLogWhereInputObjectSchema } from './objects/FeedingLogWhereInput.schema';
+import { FeedingLogOrderByWithAggregationInputObjectSchema as FeedingLogOrderByWithAggregationInputObjectSchema } from './objects/FeedingLogOrderByWithAggregationInput.schema';
+import { FeedingLogScalarWhereWithAggregatesInputObjectSchema as FeedingLogScalarWhereWithAggregatesInputObjectSchema } from './objects/FeedingLogScalarWhereWithAggregatesInput.schema';
+import { FeedingLogScalarFieldEnumSchema } from './enums/FeedingLogScalarFieldEnum.schema';
+import { FeedingLogCountAggregateInputObjectSchema as FeedingLogCountAggregateInputObjectSchema } from './objects/FeedingLogCountAggregateInput.schema';
+import { FeedingLogMinAggregateInputObjectSchema as FeedingLogMinAggregateInputObjectSchema } from './objects/FeedingLogMinAggregateInput.schema';
+import { FeedingLogMaxAggregateInputObjectSchema as FeedingLogMaxAggregateInputObjectSchema } from './objects/FeedingLogMaxAggregateInput.schema';
+import { FeedingLogAvgAggregateInputObjectSchema as FeedingLogAvgAggregateInputObjectSchema } from './objects/FeedingLogAvgAggregateInput.schema';
+import { FeedingLogSumAggregateInputObjectSchema as FeedingLogSumAggregateInputObjectSchema } from './objects/FeedingLogSumAggregateInput.schema';
+
+export const FeedingLogGroupBySchema: z.ZodType<Prisma.FeedingLogGroupByArgs> = z.object({ where: FeedingLogWhereInputObjectSchema.optional(), orderBy: z.union([FeedingLogOrderByWithAggregationInputObjectSchema, FeedingLogOrderByWithAggregationInputObjectSchema.array()]).optional(), having: FeedingLogScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(FeedingLogScalarFieldEnumSchema), _count: z.union([ z.literal(true), FeedingLogCountAggregateInputObjectSchema ]).optional(), _min: FeedingLogMinAggregateInputObjectSchema.optional(), _max: FeedingLogMaxAggregateInputObjectSchema.optional(), _avg: FeedingLogAvgAggregateInputObjectSchema.optional(), _sum: FeedingLogSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.FeedingLogGroupByArgs>;
+
+export const FeedingLogGroupByZodSchema = z.object({ where: FeedingLogWhereInputObjectSchema.optional(), orderBy: z.union([FeedingLogOrderByWithAggregationInputObjectSchema, FeedingLogOrderByWithAggregationInputObjectSchema.array()]).optional(), having: FeedingLogScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(FeedingLogScalarFieldEnumSchema), _count: z.union([ z.literal(true), FeedingLogCountAggregateInputObjectSchema ]).optional(), _min: FeedingLogMinAggregateInputObjectSchema.optional(), _max: FeedingLogMaxAggregateInputObjectSchema.optional(), _avg: FeedingLogAvgAggregateInputObjectSchema.optional(), _sum: FeedingLogSumAggregateInputObjectSchema.optional() }).strict();

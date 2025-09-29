@@ -1,0 +1,14 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { GrowthChartOrderByWithRelationInputObjectSchema as GrowthChartOrderByWithRelationInputObjectSchema } from './objects/GrowthChartOrderByWithRelationInput.schema';
+import { GrowthChartWhereInputObjectSchema as GrowthChartWhereInputObjectSchema } from './objects/GrowthChartWhereInput.schema';
+import { GrowthChartWhereUniqueInputObjectSchema as GrowthChartWhereUniqueInputObjectSchema } from './objects/GrowthChartWhereUniqueInput.schema';
+import { GrowthChartCountAggregateInputObjectSchema as GrowthChartCountAggregateInputObjectSchema } from './objects/GrowthChartCountAggregateInput.schema';
+import { GrowthChartMinAggregateInputObjectSchema as GrowthChartMinAggregateInputObjectSchema } from './objects/GrowthChartMinAggregateInput.schema';
+import { GrowthChartMaxAggregateInputObjectSchema as GrowthChartMaxAggregateInputObjectSchema } from './objects/GrowthChartMaxAggregateInput.schema';
+import { GrowthChartAvgAggregateInputObjectSchema as GrowthChartAvgAggregateInputObjectSchema } from './objects/GrowthChartAvgAggregateInput.schema';
+import { GrowthChartSumAggregateInputObjectSchema as GrowthChartSumAggregateInputObjectSchema } from './objects/GrowthChartSumAggregateInput.schema';
+
+export const GrowthChartAggregateSchema: z.ZodType<Prisma.GrowthChartAggregateArgs> = z.object({ orderBy: z.union([GrowthChartOrderByWithRelationInputObjectSchema, GrowthChartOrderByWithRelationInputObjectSchema.array()]).optional(), where: GrowthChartWhereInputObjectSchema.optional(), cursor: GrowthChartWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), GrowthChartCountAggregateInputObjectSchema ]).optional(), _min: GrowthChartMinAggregateInputObjectSchema.optional(), _max: GrowthChartMaxAggregateInputObjectSchema.optional(), _avg: GrowthChartAvgAggregateInputObjectSchema.optional(), _sum: GrowthChartSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.GrowthChartAggregateArgs>;
+
+export const GrowthChartAggregateZodSchema = z.object({ orderBy: z.union([GrowthChartOrderByWithRelationInputObjectSchema, GrowthChartOrderByWithRelationInputObjectSchema.array()]).optional(), where: GrowthChartWhereInputObjectSchema.optional(), cursor: GrowthChartWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), GrowthChartCountAggregateInputObjectSchema ]).optional(), _min: GrowthChartMinAggregateInputObjectSchema.optional(), _max: GrowthChartMaxAggregateInputObjectSchema.optional(), _avg: GrowthChartAvgAggregateInputObjectSchema.optional(), _sum: GrowthChartSumAggregateInputObjectSchema.optional() }).strict();

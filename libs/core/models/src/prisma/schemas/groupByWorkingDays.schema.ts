@@ -1,0 +1,15 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { WorkingDaysWhereInputObjectSchema as WorkingDaysWhereInputObjectSchema } from './objects/WorkingDaysWhereInput.schema';
+import { WorkingDaysOrderByWithAggregationInputObjectSchema as WorkingDaysOrderByWithAggregationInputObjectSchema } from './objects/WorkingDaysOrderByWithAggregationInput.schema';
+import { WorkingDaysScalarWhereWithAggregatesInputObjectSchema as WorkingDaysScalarWhereWithAggregatesInputObjectSchema } from './objects/WorkingDaysScalarWhereWithAggregatesInput.schema';
+import { WorkingDaysScalarFieldEnumSchema } from './enums/WorkingDaysScalarFieldEnum.schema';
+import { WorkingDaysCountAggregateInputObjectSchema as WorkingDaysCountAggregateInputObjectSchema } from './objects/WorkingDaysCountAggregateInput.schema';
+import { WorkingDaysMinAggregateInputObjectSchema as WorkingDaysMinAggregateInputObjectSchema } from './objects/WorkingDaysMinAggregateInput.schema';
+import { WorkingDaysMaxAggregateInputObjectSchema as WorkingDaysMaxAggregateInputObjectSchema } from './objects/WorkingDaysMaxAggregateInput.schema';
+import { WorkingDaysAvgAggregateInputObjectSchema as WorkingDaysAvgAggregateInputObjectSchema } from './objects/WorkingDaysAvgAggregateInput.schema';
+import { WorkingDaysSumAggregateInputObjectSchema as WorkingDaysSumAggregateInputObjectSchema } from './objects/WorkingDaysSumAggregateInput.schema';
+
+export const WorkingDaysGroupBySchema: z.ZodType<Prisma.WorkingDaysGroupByArgs> = z.object({ where: WorkingDaysWhereInputObjectSchema.optional(), orderBy: z.union([WorkingDaysOrderByWithAggregationInputObjectSchema, WorkingDaysOrderByWithAggregationInputObjectSchema.array()]).optional(), having: WorkingDaysScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(WorkingDaysScalarFieldEnumSchema), _count: z.union([ z.literal(true), WorkingDaysCountAggregateInputObjectSchema ]).optional(), _min: WorkingDaysMinAggregateInputObjectSchema.optional(), _max: WorkingDaysMaxAggregateInputObjectSchema.optional(), _avg: WorkingDaysAvgAggregateInputObjectSchema.optional(), _sum: WorkingDaysSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.WorkingDaysGroupByArgs>;
+
+export const WorkingDaysGroupByZodSchema = z.object({ where: WorkingDaysWhereInputObjectSchema.optional(), orderBy: z.union([WorkingDaysOrderByWithAggregationInputObjectSchema, WorkingDaysOrderByWithAggregationInputObjectSchema.array()]).optional(), having: WorkingDaysScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(WorkingDaysScalarFieldEnumSchema), _count: z.union([ z.literal(true), WorkingDaysCountAggregateInputObjectSchema ]).optional(), _min: WorkingDaysMinAggregateInputObjectSchema.optional(), _max: WorkingDaysMaxAggregateInputObjectSchema.optional(), _avg: WorkingDaysAvgAggregateInputObjectSchema.optional(), _sum: WorkingDaysSumAggregateInputObjectSchema.optional() }).strict();

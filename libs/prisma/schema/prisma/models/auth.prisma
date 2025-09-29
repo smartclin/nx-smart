@@ -1,0 +1,161 @@
+enum Gender {
+  Male
+  Female
+}
+
+model Admin {
+  id String @id @default(uuid())
+
+  // Credentials
+  username  String    @unique
+  password  String
+  role      Role?     @default(ADMIN)
+  // Profile
+  name      String
+  phone     String
+  birthDate DateTime?
+
+  avatarId String?
+  avatar   File?   @relation(fields: [avatarId], references: [id], name: "AdminAvatars")
+
+  // Flags
+  isRoot Boolean @default(false)
+
+  // Metadata
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  uploads File[]
+}
+
+model User {
+  id            String  @id @default(uuid())
+  name          String
+  email         String
+  emailVerified Boolean
+  image         String?
+
+  // Credentials
+  username String
+  password String
+
+  // Profile
+  phone           String
+  birthDate       DateTime?
+  gender          Gender?
+  displayUsername String?
+  sessions        Session[]
+  accounts        Account[]
+
+  Notification     Notification[]
+  Staff            Staff[]
+  Doctor           Doctor[]
+  Patient          Patient[]
+  twoFactorEnabled Boolean?
+  role             String?
+  banned           Boolean?
+  banReason        String?
+  banExpires       DateTime?
+
+  twofactors TwoFactor[]
+
+  avatarId String?
+  avatar   File?   @relation(fields: [avatarId], references: [id], name: "UserAvatars")
+
+  // Metadata
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  uploads File[]
+
+  @@unique([email])
+  @@unique([username])
+  @@map("user")
+}
+
+model File {
+  id String @id @default(uuid())
+
+  key      String   @unique
+  size     Int
+  type     FileType
+  isPublic Boolean  @default(false)
+
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id])
+
+  admin   Admin?  @relation(fields: [adminId], references: [id])
+  adminId String?
+
+  // Metadata
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  admins Admin[] @relation("AdminAvatars")
+  users  User[]  @relation("UserAvatars")
+}
+
+enum FileType {
+  Image
+  Video
+}
+
+model TwoFactor {
+  id          String @id
+  secret      String
+  backupCodes String
+  userId      String
+  user        User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("twoFactor")
+}
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  token     String
+  createdAt DateTime
+  updatedAt DateTime
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  impersonatedBy String?
+
+  @@unique([token])
+  @@map("session")
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime
+  updatedAt             DateTime
+
+  @@map("account")
+}
+
+model Verification {
+  id         String    @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime?
+  updatedAt  DateTime?
+
+  @@map("verification")
+}

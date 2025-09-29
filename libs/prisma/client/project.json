@@ -1,0 +1,32 @@
+{
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "implicitDependencies": [
+        "prisma-schema"
+    ],
+    "name": "prisma-client",
+    "projectType": "library",
+    "sourceRoot": "libs/prisma/client/src",
+    "tags": [],
+    "targets": {
+        "lint": {
+            "executor": "@nx/eslint:lint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/prisma/client/**/*.ts"
+                ]
+            },
+            "outputs": [
+                "{options.outputFile}"
+            ]
+        },
+        "test": {
+            "executor": "@nx/jest:jest",
+            "options": {
+                "jestConfig": "libs/prisma/client/jest.config.ts"
+            },
+            "outputs": [
+                "{workspaceRoot}/coverage/{projectRoot}"
+            ]
+        }
+    }
+}

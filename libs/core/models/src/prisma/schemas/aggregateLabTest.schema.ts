@@ -1,0 +1,14 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { LabTestOrderByWithRelationInputObjectSchema as LabTestOrderByWithRelationInputObjectSchema } from './objects/LabTestOrderByWithRelationInput.schema';
+import { LabTestWhereInputObjectSchema as LabTestWhereInputObjectSchema } from './objects/LabTestWhereInput.schema';
+import { LabTestWhereUniqueInputObjectSchema as LabTestWhereUniqueInputObjectSchema } from './objects/LabTestWhereUniqueInput.schema';
+import { LabTestCountAggregateInputObjectSchema as LabTestCountAggregateInputObjectSchema } from './objects/LabTestCountAggregateInput.schema';
+import { LabTestMinAggregateInputObjectSchema as LabTestMinAggregateInputObjectSchema } from './objects/LabTestMinAggregateInput.schema';
+import { LabTestMaxAggregateInputObjectSchema as LabTestMaxAggregateInputObjectSchema } from './objects/LabTestMaxAggregateInput.schema';
+import { LabTestAvgAggregateInputObjectSchema as LabTestAvgAggregateInputObjectSchema } from './objects/LabTestAvgAggregateInput.schema';
+import { LabTestSumAggregateInputObjectSchema as LabTestSumAggregateInputObjectSchema } from './objects/LabTestSumAggregateInput.schema';
+
+export const LabTestAggregateSchema: z.ZodType<Prisma.LabTestAggregateArgs> = z.object({ orderBy: z.union([LabTestOrderByWithRelationInputObjectSchema, LabTestOrderByWithRelationInputObjectSchema.array()]).optional(), where: LabTestWhereInputObjectSchema.optional(), cursor: LabTestWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), LabTestCountAggregateInputObjectSchema ]).optional(), _min: LabTestMinAggregateInputObjectSchema.optional(), _max: LabTestMaxAggregateInputObjectSchema.optional(), _avg: LabTestAvgAggregateInputObjectSchema.optional(), _sum: LabTestSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.LabTestAggregateArgs>;
+
+export const LabTestAggregateZodSchema = z.object({ orderBy: z.union([LabTestOrderByWithRelationInputObjectSchema, LabTestOrderByWithRelationInputObjectSchema.array()]).optional(), where: LabTestWhereInputObjectSchema.optional(), cursor: LabTestWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), LabTestCountAggregateInputObjectSchema ]).optional(), _min: LabTestMinAggregateInputObjectSchema.optional(), _max: LabTestMaxAggregateInputObjectSchema.optional(), _avg: LabTestAvgAggregateInputObjectSchema.optional(), _sum: LabTestSumAggregateInputObjectSchema.optional() }).strict();

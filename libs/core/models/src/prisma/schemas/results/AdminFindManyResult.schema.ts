@@ -1,0 +1,26 @@
+import { z } from 'zod';
+export const AdminFindManyResultSchema = z.object({
+  data: z.array(z.object({
+  id: z.string(),
+  username: z.string(),
+  password: z.string(),
+  role: z.unknown().optional(),
+  name: z.string(),
+  phone: z.string(),
+  birthDate: z.date().optional(),
+  avatarId: z.string().optional(),
+  avatar: z.unknown().optional(),
+  isRoot: z.boolean(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
+  uploads: z.array(z.unknown())
+})),
+  pagination: z.object({
+  page: z.number().int().min(1),
+  pageSize: z.number().int().min(1),
+  total: z.number().int().min(0),
+  totalPages: z.number().int().min(0),
+  hasNext: z.boolean(),
+  hasPrev: z.boolean()
+})
+});

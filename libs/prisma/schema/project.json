@@ -1,0 +1,71 @@
+{
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "name": "prisma-schema",
+    "projectType": "library",
+    "sourceRoot": "libs/prisma/schema/src",
+    "tags": [
+        "scope:data-access",
+        "type:infra"
+    ],
+    "targets": {
+        "generate": {
+            "command": "prisma generate",
+            "options": {
+                "cwd": "libs/prisma/schema"
+            }
+        },
+        "generate-types": {
+            "command": "prisma generate",
+            "options": {
+                "cwd": "libs/prisma/schema"
+            }
+        },
+        "lint": {
+            "executor": "@nx/eslint:lint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/prisma/schema/**/*.ts"
+                ]
+            },
+            "outputs": [
+                "{options.outputFile}"
+            ]
+        },
+        "migrate": {
+            "command": "prisma migrate dev",
+            "options": {
+                "cwd": "libs/prisma/schema"
+            },
+            "outputs": [
+                "{projectRoot}/prisma/migrations/**"
+            ]
+        },
+        "prisma": {
+            "command": "prisma",
+            "options": {
+                "cwd": "libs/prisma/schema"
+            }
+        },
+        "reset": {
+            "command": "prisma migrate reset --force --skip-seed",
+            "options": {
+                "cwd": "libs/prisma/schema"
+            }
+        },
+        "seed": {
+            "command": "tsx prisma/seed.ts",
+            "dependsOn": [
+                "generate"
+            ],
+            "options": {
+                "cwd": "libs/prisma/schema"
+            }
+        },
+        "studio": {
+            "command": "prisma studio",
+            "options": {
+                "cwd": "libs/prisma/schema"
+            }
+        }
+    }
+}

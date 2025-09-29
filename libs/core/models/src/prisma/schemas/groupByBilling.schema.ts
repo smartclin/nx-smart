@@ -1,0 +1,15 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { BillingWhereInputObjectSchema as BillingWhereInputObjectSchema } from './objects/BillingWhereInput.schema';
+import { BillingOrderByWithAggregationInputObjectSchema as BillingOrderByWithAggregationInputObjectSchema } from './objects/BillingOrderByWithAggregationInput.schema';
+import { BillingScalarWhereWithAggregatesInputObjectSchema as BillingScalarWhereWithAggregatesInputObjectSchema } from './objects/BillingScalarWhereWithAggregatesInput.schema';
+import { BillingScalarFieldEnumSchema } from './enums/BillingScalarFieldEnum.schema';
+import { BillingCountAggregateInputObjectSchema as BillingCountAggregateInputObjectSchema } from './objects/BillingCountAggregateInput.schema';
+import { BillingMinAggregateInputObjectSchema as BillingMinAggregateInputObjectSchema } from './objects/BillingMinAggregateInput.schema';
+import { BillingMaxAggregateInputObjectSchema as BillingMaxAggregateInputObjectSchema } from './objects/BillingMaxAggregateInput.schema';
+import { BillingAvgAggregateInputObjectSchema as BillingAvgAggregateInputObjectSchema } from './objects/BillingAvgAggregateInput.schema';
+import { BillingSumAggregateInputObjectSchema as BillingSumAggregateInputObjectSchema } from './objects/BillingSumAggregateInput.schema';
+
+export const BillingGroupBySchema: z.ZodType<Prisma.BillingGroupByArgs> = z.object({ where: BillingWhereInputObjectSchema.optional(), orderBy: z.union([BillingOrderByWithAggregationInputObjectSchema, BillingOrderByWithAggregationInputObjectSchema.array()]).optional(), having: BillingScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(BillingScalarFieldEnumSchema), _count: z.union([ z.literal(true), BillingCountAggregateInputObjectSchema ]).optional(), _min: BillingMinAggregateInputObjectSchema.optional(), _max: BillingMaxAggregateInputObjectSchema.optional(), _avg: BillingAvgAggregateInputObjectSchema.optional(), _sum: BillingSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.BillingGroupByArgs>;
+
+export const BillingGroupByZodSchema = z.object({ where: BillingWhereInputObjectSchema.optional(), orderBy: z.union([BillingOrderByWithAggregationInputObjectSchema, BillingOrderByWithAggregationInputObjectSchema.array()]).optional(), having: BillingScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(BillingScalarFieldEnumSchema), _count: z.union([ z.literal(true), BillingCountAggregateInputObjectSchema ]).optional(), _min: BillingMinAggregateInputObjectSchema.optional(), _max: BillingMaxAggregateInputObjectSchema.optional(), _avg: BillingAvgAggregateInputObjectSchema.optional(), _sum: BillingSumAggregateInputObjectSchema.optional() }).strict();

@@ -1,0 +1,14 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { ServicesOrderByWithRelationInputObjectSchema as ServicesOrderByWithRelationInputObjectSchema } from './objects/ServicesOrderByWithRelationInput.schema';
+import { ServicesWhereInputObjectSchema as ServicesWhereInputObjectSchema } from './objects/ServicesWhereInput.schema';
+import { ServicesWhereUniqueInputObjectSchema as ServicesWhereUniqueInputObjectSchema } from './objects/ServicesWhereUniqueInput.schema';
+import { ServicesCountAggregateInputObjectSchema as ServicesCountAggregateInputObjectSchema } from './objects/ServicesCountAggregateInput.schema';
+import { ServicesMinAggregateInputObjectSchema as ServicesMinAggregateInputObjectSchema } from './objects/ServicesMinAggregateInput.schema';
+import { ServicesMaxAggregateInputObjectSchema as ServicesMaxAggregateInputObjectSchema } from './objects/ServicesMaxAggregateInput.schema';
+import { ServicesAvgAggregateInputObjectSchema as ServicesAvgAggregateInputObjectSchema } from './objects/ServicesAvgAggregateInput.schema';
+import { ServicesSumAggregateInputObjectSchema as ServicesSumAggregateInputObjectSchema } from './objects/ServicesSumAggregateInput.schema';
+
+export const ServicesAggregateSchema: z.ZodType<Prisma.ServicesAggregateArgs> = z.object({ orderBy: z.union([ServicesOrderByWithRelationInputObjectSchema, ServicesOrderByWithRelationInputObjectSchema.array()]).optional(), where: ServicesWhereInputObjectSchema.optional(), cursor: ServicesWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), ServicesCountAggregateInputObjectSchema ]).optional(), _min: ServicesMinAggregateInputObjectSchema.optional(), _max: ServicesMaxAggregateInputObjectSchema.optional(), _avg: ServicesAvgAggregateInputObjectSchema.optional(), _sum: ServicesSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.ServicesAggregateArgs>;
+
+export const ServicesAggregateZodSchema = z.object({ orderBy: z.union([ServicesOrderByWithRelationInputObjectSchema, ServicesOrderByWithRelationInputObjectSchema.array()]).optional(), where: ServicesWhereInputObjectSchema.optional(), cursor: ServicesWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), ServicesCountAggregateInputObjectSchema ]).optional(), _min: ServicesMinAggregateInputObjectSchema.optional(), _max: ServicesMaxAggregateInputObjectSchema.optional(), _avg: ServicesAvgAggregateInputObjectSchema.optional(), _sum: ServicesSumAggregateInputObjectSchema.optional() }).strict();

@@ -1,0 +1,39 @@
+generator client {
+  provider        = "prisma-client-js"
+  moduleFormat    = "esm"
+  output= "../../../../node_modules/.prisma/client"
+  engineType      = "client"
+  previewFeatures = ["relationJoins", "strictUndefinedChecks", "typedSql"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator json {
+  provider = "prisma-json-types-generator"
+}
+
+// generator zod {
+//   provider = "prisma-zod-generator"
+//   output   = "../../../core/models/src/prisma"
+//   config   = "./prisma/zod-generator.config.json"
+// }
+
+// generator typescriptInterfaces {
+//   provider = "prisma-generator-typescript-interfaces"
+//   output   = "../../../core/models/src/interfaces.ts"
+//   prettier = false
+// }
+
+// generator typescriptInterfacesJson {
+//   provider    = "prisma-generator-typescript-interfaces"
+//   output      = "../../../core/models/src/json-interfaces.ts"
+//   modelSuffix = "Json"
+//   dateType    = "date "
+//   bigIntType  = "string"
+//   decimalType = "string"
+//   bytesType   = "number[]"
+//   prettier    = false
+// }

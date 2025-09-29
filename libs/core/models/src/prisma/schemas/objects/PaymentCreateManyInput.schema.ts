@@ -1,0 +1,23 @@
+import { z } from 'zod';
+import type { Prisma } from '../../../../../../../node_modules/.prisma/client';
+import { PaymentMethodSchema } from '../enums/PaymentMethod.schema';
+import { PaymentStatusSchema } from '../enums/PaymentStatus.schema'
+
+const makeSchema = () => z.object({
+  id: z.number().int().optional(),
+  billId: z.number().int().optional().nullable(),
+  patientId: z.string(),
+  appointmentId: z.number().int(),
+  billDate: z.coerce.date(),
+  paymentDate: z.coerce.date(),
+  discount: z.number(),
+  totalAmount: z.number(),
+  amountPaid: z.number(),
+  paymentMethod: PaymentMethodSchema.optional(),
+  status: PaymentStatusSchema.optional(),
+  receiptNumber: z.number().int(),
+  createdAt: z.coerce.date().optional(),
+  updatedAt: z.coerce.date().optional()
+}).strict();
+export const PaymentCreateManyInputObjectSchema: z.ZodType<Prisma.PaymentCreateManyInput> = makeSchema() as unknown as z.ZodType<Prisma.PaymentCreateManyInput>;
+export const PaymentCreateManyInputObjectZodSchema = makeSchema();

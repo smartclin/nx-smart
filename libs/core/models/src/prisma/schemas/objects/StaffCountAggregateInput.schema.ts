@@ -1,0 +1,25 @@
+import { z } from 'zod';
+import type { Prisma } from '../../../../../../../node_modules/.prisma/client';
+
+
+const makeSchema = () => z.object({
+  id: z.literal(true).optional(),
+  email: z.literal(true).optional(),
+  name: z.literal(true).optional(),
+  phone: z.literal(true).optional(),
+  userId: z.literal(true).optional(),
+  address: z.literal(true).optional(),
+  department: z.literal(true).optional(),
+  img: z.literal(true).optional(),
+  licenseNumber: z.literal(true).optional(),
+  colorCode: z.literal(true).optional(),
+  hireDate: z.literal(true).optional(),
+  salary: z.literal(true).optional(),
+  role: z.literal(true).optional(),
+  status: z.literal(true).optional(),
+  createdAt: z.literal(true).optional(),
+  updatedAt: z.literal(true).optional(),
+  _all: z.literal(true).optional()
+}).strict();
+export const StaffCountAggregateInputObjectSchema: z.ZodType<Prisma.StaffCountAggregateInputType> = makeSchema() as unknown as z.ZodType<Prisma.StaffCountAggregateInputType>;
+export const StaffCountAggregateInputObjectZodSchema = makeSchema();

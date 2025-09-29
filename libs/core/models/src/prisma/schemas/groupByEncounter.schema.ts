@@ -1,0 +1,15 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { EncounterWhereInputObjectSchema as EncounterWhereInputObjectSchema } from './objects/EncounterWhereInput.schema';
+import { EncounterOrderByWithAggregationInputObjectSchema as EncounterOrderByWithAggregationInputObjectSchema } from './objects/EncounterOrderByWithAggregationInput.schema';
+import { EncounterScalarWhereWithAggregatesInputObjectSchema as EncounterScalarWhereWithAggregatesInputObjectSchema } from './objects/EncounterScalarWhereWithAggregatesInput.schema';
+import { EncounterScalarFieldEnumSchema } from './enums/EncounterScalarFieldEnum.schema';
+import { EncounterCountAggregateInputObjectSchema as EncounterCountAggregateInputObjectSchema } from './objects/EncounterCountAggregateInput.schema';
+import { EncounterMinAggregateInputObjectSchema as EncounterMinAggregateInputObjectSchema } from './objects/EncounterMinAggregateInput.schema';
+import { EncounterMaxAggregateInputObjectSchema as EncounterMaxAggregateInputObjectSchema } from './objects/EncounterMaxAggregateInput.schema';
+import { EncounterAvgAggregateInputObjectSchema as EncounterAvgAggregateInputObjectSchema } from './objects/EncounterAvgAggregateInput.schema';
+import { EncounterSumAggregateInputObjectSchema as EncounterSumAggregateInputObjectSchema } from './objects/EncounterSumAggregateInput.schema';
+
+export const EncounterGroupBySchema: z.ZodType<Prisma.EncounterGroupByArgs> = z.object({ where: EncounterWhereInputObjectSchema.optional(), orderBy: z.union([EncounterOrderByWithAggregationInputObjectSchema, EncounterOrderByWithAggregationInputObjectSchema.array()]).optional(), having: EncounterScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(EncounterScalarFieldEnumSchema), _count: z.union([ z.literal(true), EncounterCountAggregateInputObjectSchema ]).optional(), _min: EncounterMinAggregateInputObjectSchema.optional(), _max: EncounterMaxAggregateInputObjectSchema.optional(), _avg: EncounterAvgAggregateInputObjectSchema.optional(), _sum: EncounterSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.EncounterGroupByArgs>;
+
+export const EncounterGroupByZodSchema = z.object({ where: EncounterWhereInputObjectSchema.optional(), orderBy: z.union([EncounterOrderByWithAggregationInputObjectSchema, EncounterOrderByWithAggregationInputObjectSchema.array()]).optional(), having: EncounterScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(EncounterScalarFieldEnumSchema), _count: z.union([ z.literal(true), EncounterCountAggregateInputObjectSchema ]).optional(), _min: EncounterMinAggregateInputObjectSchema.optional(), _max: EncounterMaxAggregateInputObjectSchema.optional(), _avg: EncounterAvgAggregateInputObjectSchema.optional(), _sum: EncounterSumAggregateInputObjectSchema.optional() }).strict();

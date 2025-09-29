@@ -1,0 +1,15 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { DiagnosisWhereInputObjectSchema as DiagnosisWhereInputObjectSchema } from './objects/DiagnosisWhereInput.schema';
+import { DiagnosisOrderByWithAggregationInputObjectSchema as DiagnosisOrderByWithAggregationInputObjectSchema } from './objects/DiagnosisOrderByWithAggregationInput.schema';
+import { DiagnosisScalarWhereWithAggregatesInputObjectSchema as DiagnosisScalarWhereWithAggregatesInputObjectSchema } from './objects/DiagnosisScalarWhereWithAggregatesInput.schema';
+import { DiagnosisScalarFieldEnumSchema } from './enums/DiagnosisScalarFieldEnum.schema';
+import { DiagnosisCountAggregateInputObjectSchema as DiagnosisCountAggregateInputObjectSchema } from './objects/DiagnosisCountAggregateInput.schema';
+import { DiagnosisMinAggregateInputObjectSchema as DiagnosisMinAggregateInputObjectSchema } from './objects/DiagnosisMinAggregateInput.schema';
+import { DiagnosisMaxAggregateInputObjectSchema as DiagnosisMaxAggregateInputObjectSchema } from './objects/DiagnosisMaxAggregateInput.schema';
+import { DiagnosisAvgAggregateInputObjectSchema as DiagnosisAvgAggregateInputObjectSchema } from './objects/DiagnosisAvgAggregateInput.schema';
+import { DiagnosisSumAggregateInputObjectSchema as DiagnosisSumAggregateInputObjectSchema } from './objects/DiagnosisSumAggregateInput.schema';
+
+export const DiagnosisGroupBySchema: z.ZodType<Prisma.DiagnosisGroupByArgs> = z.object({ where: DiagnosisWhereInputObjectSchema.optional(), orderBy: z.union([DiagnosisOrderByWithAggregationInputObjectSchema, DiagnosisOrderByWithAggregationInputObjectSchema.array()]).optional(), having: DiagnosisScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(DiagnosisScalarFieldEnumSchema), _count: z.union([ z.literal(true), DiagnosisCountAggregateInputObjectSchema ]).optional(), _min: DiagnosisMinAggregateInputObjectSchema.optional(), _max: DiagnosisMaxAggregateInputObjectSchema.optional(), _avg: DiagnosisAvgAggregateInputObjectSchema.optional(), _sum: DiagnosisSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.DiagnosisGroupByArgs>;
+
+export const DiagnosisGroupByZodSchema = z.object({ where: DiagnosisWhereInputObjectSchema.optional(), orderBy: z.union([DiagnosisOrderByWithAggregationInputObjectSchema, DiagnosisOrderByWithAggregationInputObjectSchema.array()]).optional(), having: DiagnosisScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(DiagnosisScalarFieldEnumSchema), _count: z.union([ z.literal(true), DiagnosisCountAggregateInputObjectSchema ]).optional(), _min: DiagnosisMinAggregateInputObjectSchema.optional(), _max: DiagnosisMaxAggregateInputObjectSchema.optional(), _avg: DiagnosisAvgAggregateInputObjectSchema.optional(), _sum: DiagnosisSumAggregateInputObjectSchema.optional() }).strict();

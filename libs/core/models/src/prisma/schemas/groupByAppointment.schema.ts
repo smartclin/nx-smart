@@ -1,0 +1,15 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { AppointmentWhereInputObjectSchema as AppointmentWhereInputObjectSchema } from './objects/AppointmentWhereInput.schema';
+import { AppointmentOrderByWithAggregationInputObjectSchema as AppointmentOrderByWithAggregationInputObjectSchema } from './objects/AppointmentOrderByWithAggregationInput.schema';
+import { AppointmentScalarWhereWithAggregatesInputObjectSchema as AppointmentScalarWhereWithAggregatesInputObjectSchema } from './objects/AppointmentScalarWhereWithAggregatesInput.schema';
+import { AppointmentScalarFieldEnumSchema } from './enums/AppointmentScalarFieldEnum.schema';
+import { AppointmentCountAggregateInputObjectSchema as AppointmentCountAggregateInputObjectSchema } from './objects/AppointmentCountAggregateInput.schema';
+import { AppointmentMinAggregateInputObjectSchema as AppointmentMinAggregateInputObjectSchema } from './objects/AppointmentMinAggregateInput.schema';
+import { AppointmentMaxAggregateInputObjectSchema as AppointmentMaxAggregateInputObjectSchema } from './objects/AppointmentMaxAggregateInput.schema';
+import { AppointmentAvgAggregateInputObjectSchema as AppointmentAvgAggregateInputObjectSchema } from './objects/AppointmentAvgAggregateInput.schema';
+import { AppointmentSumAggregateInputObjectSchema as AppointmentSumAggregateInputObjectSchema } from './objects/AppointmentSumAggregateInput.schema';
+
+export const AppointmentGroupBySchema: z.ZodType<Prisma.AppointmentGroupByArgs> = z.object({ where: AppointmentWhereInputObjectSchema.optional(), orderBy: z.union([AppointmentOrderByWithAggregationInputObjectSchema, AppointmentOrderByWithAggregationInputObjectSchema.array()]).optional(), having: AppointmentScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(AppointmentScalarFieldEnumSchema), _count: z.union([ z.literal(true), AppointmentCountAggregateInputObjectSchema ]).optional(), _min: AppointmentMinAggregateInputObjectSchema.optional(), _max: AppointmentMaxAggregateInputObjectSchema.optional(), _avg: AppointmentAvgAggregateInputObjectSchema.optional(), _sum: AppointmentSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.AppointmentGroupByArgs>;
+
+export const AppointmentGroupByZodSchema = z.object({ where: AppointmentWhereInputObjectSchema.optional(), orderBy: z.union([AppointmentOrderByWithAggregationInputObjectSchema, AppointmentOrderByWithAggregationInputObjectSchema.array()]).optional(), having: AppointmentScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(AppointmentScalarFieldEnumSchema), _count: z.union([ z.literal(true), AppointmentCountAggregateInputObjectSchema ]).optional(), _min: AppointmentMinAggregateInputObjectSchema.optional(), _max: AppointmentMaxAggregateInputObjectSchema.optional(), _avg: AppointmentAvgAggregateInputObjectSchema.optional(), _sum: AppointmentSumAggregateInputObjectSchema.optional() }).strict();

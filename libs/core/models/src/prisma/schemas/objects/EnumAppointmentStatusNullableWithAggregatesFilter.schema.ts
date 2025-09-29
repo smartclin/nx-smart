@@ -1,0 +1,18 @@
+import { z } from 'zod';
+import type { Prisma } from '../../../../../../../node_modules/.prisma/client';
+import { AppointmentStatusSchema } from '../enums/AppointmentStatus.schema';
+import { NestedEnumAppointmentStatusNullableWithAggregatesFilterObjectSchema as NestedEnumAppointmentStatusNullableWithAggregatesFilterObjectSchema } from './NestedEnumAppointmentStatusNullableWithAggregatesFilter.schema';
+import { NestedIntNullableFilterObjectSchema as NestedIntNullableFilterObjectSchema } from './NestedIntNullableFilter.schema';
+import { NestedEnumAppointmentStatusNullableFilterObjectSchema as NestedEnumAppointmentStatusNullableFilterObjectSchema } from './NestedEnumAppointmentStatusNullableFilter.schema'
+
+const makeSchema = () => z.object({
+  equals: AppointmentStatusSchema.optional().nullable(),
+  in: AppointmentStatusSchema.array().optional().nullable(),
+  notIn: AppointmentStatusSchema.array().optional().nullable(),
+  not: z.union([AppointmentStatusSchema, z.lazy(() => NestedEnumAppointmentStatusNullableWithAggregatesFilterObjectSchema)]).optional().nullable(),
+  _count: z.lazy(() => NestedIntNullableFilterObjectSchema).optional(),
+  _min: z.lazy(() => NestedEnumAppointmentStatusNullableFilterObjectSchema).optional(),
+  _max: z.lazy(() => NestedEnumAppointmentStatusNullableFilterObjectSchema).optional()
+}).strict();
+export const EnumAppointmentStatusNullableWithAggregatesFilterObjectSchema: z.ZodType<Prisma.EnumAppointmentStatusNullableWithAggregatesFilter> = makeSchema() as unknown as z.ZodType<Prisma.EnumAppointmentStatusNullableWithAggregatesFilter>;
+export const EnumAppointmentStatusNullableWithAggregatesFilterObjectZodSchema = makeSchema();

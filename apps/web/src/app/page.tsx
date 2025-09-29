@@ -53,7 +53,7 @@ export default function Index() {
         </div>
 
         <div id="middle-content">
-          <div id="learning-materials" className="rounded shadow">
+          <div id="learning-materials" className="rounded shadow-sm">
             <h2>Learning materials</h2>
             <a
               href="https://nx.dev/getting-started/intro?utm_source=nx-project"
@@ -242,7 +242,7 @@ export default function Index() {
           <div id="other-links">
             <a
               id="nx-console"
-              className="button-pill rounded shadow"
+              className="button-pill rounded-sm shadow-sm"
               href="https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console&utm_source=nx-project"
               target="_blank"
               rel="noreferrer"
@@ -263,7 +263,7 @@ export default function Index() {
             </a>
             <a
                 id="nx-console-jetbrains"
-                className="button-pill rounded shadow"
+                className="button-pill rounded-sm shadow-sm"
                 href="https://plugins.jetbrains.com/plugin/21060-nx-console"
                 target="_blank"
                 rel="noreferrer"
@@ -295,7 +295,7 @@ export default function Index() {
                   </span>
                 </span>
               </a>
-            <div id="nx-cloud" className="rounded shadow">
+            <div id="nx-cloud" className="rounded shadow-sm">
               <div>
                 <svg id="nx-cloud-logo" role="img" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="transparent" viewBox="0 0 24 24">
                   <path strokeWidth="2" d="M23 3.75V6.5c-3.036 0-5.5 2.464-5.5 5.5s-2.464 5.5-5.5 5.5-5.5 2.464-5.5 5.5H3.75C2.232 23 1 21.768 1 20.25V3.75C1 2.232 2.232 1 3.75 1h16.5C21.768 1 23 2.232 23 3.75Z" />
@@ -324,7 +324,7 @@ export default function Index() {
             </div>
             <a
               id="nx-repo"
-              className="button-pill rounded shadow"
+              className="button-pill rounded-sm shadow-sm"
               href="https://github.com/nrwl/nx?utm_source=nx-project"
               target="_blank"
               rel="noreferrer"
@@ -345,7 +345,7 @@ export default function Index() {
           </div>
         </div>
 
-        <div id="commands" className="rounded shadow">
+        <div id="commands" className="rounded shadow-sm">
           <h2>Next steps</h2>
           <p>Here are some things you can do with Nx:</p>
           <details>

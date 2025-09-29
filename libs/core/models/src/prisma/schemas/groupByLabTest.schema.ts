@@ -1,0 +1,15 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { LabTestWhereInputObjectSchema as LabTestWhereInputObjectSchema } from './objects/LabTestWhereInput.schema';
+import { LabTestOrderByWithAggregationInputObjectSchema as LabTestOrderByWithAggregationInputObjectSchema } from './objects/LabTestOrderByWithAggregationInput.schema';
+import { LabTestScalarWhereWithAggregatesInputObjectSchema as LabTestScalarWhereWithAggregatesInputObjectSchema } from './objects/LabTestScalarWhereWithAggregatesInput.schema';
+import { LabTestScalarFieldEnumSchema } from './enums/LabTestScalarFieldEnum.schema';
+import { LabTestCountAggregateInputObjectSchema as LabTestCountAggregateInputObjectSchema } from './objects/LabTestCountAggregateInput.schema';
+import { LabTestMinAggregateInputObjectSchema as LabTestMinAggregateInputObjectSchema } from './objects/LabTestMinAggregateInput.schema';
+import { LabTestMaxAggregateInputObjectSchema as LabTestMaxAggregateInputObjectSchema } from './objects/LabTestMaxAggregateInput.schema';
+import { LabTestAvgAggregateInputObjectSchema as LabTestAvgAggregateInputObjectSchema } from './objects/LabTestAvgAggregateInput.schema';
+import { LabTestSumAggregateInputObjectSchema as LabTestSumAggregateInputObjectSchema } from './objects/LabTestSumAggregateInput.schema';
+
+export const LabTestGroupBySchema: z.ZodType<Prisma.LabTestGroupByArgs> = z.object({ where: LabTestWhereInputObjectSchema.optional(), orderBy: z.union([LabTestOrderByWithAggregationInputObjectSchema, LabTestOrderByWithAggregationInputObjectSchema.array()]).optional(), having: LabTestScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(LabTestScalarFieldEnumSchema), _count: z.union([ z.literal(true), LabTestCountAggregateInputObjectSchema ]).optional(), _min: LabTestMinAggregateInputObjectSchema.optional(), _max: LabTestMaxAggregateInputObjectSchema.optional(), _avg: LabTestAvgAggregateInputObjectSchema.optional(), _sum: LabTestSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.LabTestGroupByArgs>;
+
+export const LabTestGroupByZodSchema = z.object({ where: LabTestWhereInputObjectSchema.optional(), orderBy: z.union([LabTestOrderByWithAggregationInputObjectSchema, LabTestOrderByWithAggregationInputObjectSchema.array()]).optional(), having: LabTestScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(LabTestScalarFieldEnumSchema), _count: z.union([ z.literal(true), LabTestCountAggregateInputObjectSchema ]).optional(), _min: LabTestMinAggregateInputObjectSchema.optional(), _max: LabTestMaxAggregateInputObjectSchema.optional(), _avg: LabTestAvgAggregateInputObjectSchema.optional(), _sum: LabTestSumAggregateInputObjectSchema.optional() }).strict();

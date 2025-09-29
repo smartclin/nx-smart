@@ -1,0 +1,29 @@
+import { z } from 'zod';
+import type { Prisma } from '../../../../../../../node_modules/.prisma/client';
+import { StringFieldUpdateOperationsInputObjectSchema as StringFieldUpdateOperationsInputObjectSchema } from './StringFieldUpdateOperationsInput.schema';
+import { FloatFieldUpdateOperationsInputObjectSchema as FloatFieldUpdateOperationsInputObjectSchema } from './FloatFieldUpdateOperationsInput.schema';
+import { BillingStatusSchema } from '../enums/BillingStatus.schema';
+import { EnumBillingStatusFieldUpdateOperationsInputObjectSchema as EnumBillingStatusFieldUpdateOperationsInputObjectSchema } from './EnumBillingStatusFieldUpdateOperationsInput.schema';
+import { NullableStringFieldUpdateOperationsInputObjectSchema as NullableStringFieldUpdateOperationsInputObjectSchema } from './NullableStringFieldUpdateOperationsInput.schema';
+import { DateTimeFieldUpdateOperationsInputObjectSchema as DateTimeFieldUpdateOperationsInputObjectSchema } from './DateTimeFieldUpdateOperationsInput.schema';
+import { NullableDateTimeFieldUpdateOperationsInputObjectSchema as NullableDateTimeFieldUpdateOperationsInputObjectSchema } from './NullableDateTimeFieldUpdateOperationsInput.schema';
+import { PatientUpdateOneRequiredWithoutBillingNestedInputObjectSchema as PatientUpdateOneRequiredWithoutBillingNestedInputObjectSchema } from './PatientUpdateOneRequiredWithoutBillingNestedInput.schema';
+import { AppointmentUpdateOneWithoutBillingNestedInputObjectSchema as AppointmentUpdateOneWithoutBillingNestedInputObjectSchema } from './AppointmentUpdateOneWithoutBillingNestedInput.schema'
+
+const makeSchema = () => z.object({
+  id: z.union([z.string(), z.lazy(() => StringFieldUpdateOperationsInputObjectSchema)]).optional(),
+  amount: z.union([z.number(), z.lazy(() => FloatFieldUpdateOperationsInputObjectSchema)]).optional(),
+  status: z.union([BillingStatusSchema, z.lazy(() => EnumBillingStatusFieldUpdateOperationsInputObjectSchema)]).optional(),
+  insurance: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
+  insuranceId: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
+  serviceDate: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
+  dueDate: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
+  paidDate: z.union([z.coerce.date(), z.lazy(() => NullableDateTimeFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
+  notes: z.union([z.string(), z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema)]).optional().nullable(),
+  createdAt: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
+  updatedAt: z.union([z.coerce.date(), z.lazy(() => DateTimeFieldUpdateOperationsInputObjectSchema)]).optional(),
+  patient: z.lazy(() => PatientUpdateOneRequiredWithoutBillingNestedInputObjectSchema).optional(),
+  appointment: z.lazy(() => AppointmentUpdateOneWithoutBillingNestedInputObjectSchema).optional()
+}).strict();
+export const BillingUpdateInputObjectSchema: z.ZodType<Prisma.BillingUpdateInput> = makeSchema() as unknown as z.ZodType<Prisma.BillingUpdateInput>;
+export const BillingUpdateInputObjectZodSchema = makeSchema();

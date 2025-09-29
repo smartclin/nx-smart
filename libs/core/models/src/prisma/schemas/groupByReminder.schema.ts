@@ -1,0 +1,15 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { ReminderWhereInputObjectSchema as ReminderWhereInputObjectSchema } from './objects/ReminderWhereInput.schema';
+import { ReminderOrderByWithAggregationInputObjectSchema as ReminderOrderByWithAggregationInputObjectSchema } from './objects/ReminderOrderByWithAggregationInput.schema';
+import { ReminderScalarWhereWithAggregatesInputObjectSchema as ReminderScalarWhereWithAggregatesInputObjectSchema } from './objects/ReminderScalarWhereWithAggregatesInput.schema';
+import { ReminderScalarFieldEnumSchema } from './enums/ReminderScalarFieldEnum.schema';
+import { ReminderCountAggregateInputObjectSchema as ReminderCountAggregateInputObjectSchema } from './objects/ReminderCountAggregateInput.schema';
+import { ReminderMinAggregateInputObjectSchema as ReminderMinAggregateInputObjectSchema } from './objects/ReminderMinAggregateInput.schema';
+import { ReminderMaxAggregateInputObjectSchema as ReminderMaxAggregateInputObjectSchema } from './objects/ReminderMaxAggregateInput.schema';
+import { ReminderAvgAggregateInputObjectSchema as ReminderAvgAggregateInputObjectSchema } from './objects/ReminderAvgAggregateInput.schema';
+import { ReminderSumAggregateInputObjectSchema as ReminderSumAggregateInputObjectSchema } from './objects/ReminderSumAggregateInput.schema';
+
+export const ReminderGroupBySchema: z.ZodType<Prisma.ReminderGroupByArgs> = z.object({ where: ReminderWhereInputObjectSchema.optional(), orderBy: z.union([ReminderOrderByWithAggregationInputObjectSchema, ReminderOrderByWithAggregationInputObjectSchema.array()]).optional(), having: ReminderScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(ReminderScalarFieldEnumSchema), _count: z.union([ z.literal(true), ReminderCountAggregateInputObjectSchema ]).optional(), _min: ReminderMinAggregateInputObjectSchema.optional(), _max: ReminderMaxAggregateInputObjectSchema.optional(), _avg: ReminderAvgAggregateInputObjectSchema.optional(), _sum: ReminderSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.ReminderGroupByArgs>;
+
+export const ReminderGroupByZodSchema = z.object({ where: ReminderWhereInputObjectSchema.optional(), orderBy: z.union([ReminderOrderByWithAggregationInputObjectSchema, ReminderOrderByWithAggregationInputObjectSchema.array()]).optional(), having: ReminderScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(ReminderScalarFieldEnumSchema), _count: z.union([ z.literal(true), ReminderCountAggregateInputObjectSchema ]).optional(), _min: ReminderMinAggregateInputObjectSchema.optional(), _max: ReminderMaxAggregateInputObjectSchema.optional(), _avg: ReminderAvgAggregateInputObjectSchema.optional(), _sum: ReminderSumAggregateInputObjectSchema.optional() }).strict();

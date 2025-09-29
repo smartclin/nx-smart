@@ -1,0 +1,108 @@
+{
+    /**
+   * =================================================================
+   * | NEXT.JS/REACT (Specific to your apps)
+   * =================================================================
+   */
+    "css.validate": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    /**
+   * =================================================================
+   * | EDITOR DEFAULTS (Consistency)
+   * =================================================================
+   */
+    "editor.tabSize": 2,
+    "eslint.lintTask.enable": true,
+    /**
+   * =================================================================
+   * | ESLINT
+   * =================================================================
+   * Ensures ESLint runs correctly across all relevant file types.
+   */
+    "eslint.options": {
+        "overrideConfigFile": "./.eslintrc.json"
+    },
+    "eslint.validate": [
+        "javascript",
+        "typescript",
+        "json",
+        "jsonc",
+        "html",
+        "yaml",
+        "markdown"
+    ],
+    /**
+   * =================================================================
+   * | PERFORMANCE OPTIMIZATION (Crucial for Monorepos)
+   * =================================================================
+   * Excludes large and temporary directories to speed up indexing,
+   * search operations, and general VS Code responsiveness.
+   */
+    "files.exclude": {
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.nx/cache": true,
+        "**/.svn": true,
+        "**/CVS": true,
+        "**/dist": true,
+        "**/node_modules": true,
+        "**/Thumbs.db": true,
+        "**/tmp": true
+    },
+    "files.watcherExclude": {
+        "**/.nx/cache": true,
+        "**/dist": true,
+        "**/node_modules": true,
+        "**/tmp": true
+    },
+    "javascript.organizeImportsWhenSaving": false,
+    "javascript.suggest.autoImports": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "less.validate": true,
+    /**
+   * =================================================================
+   * | NX CONSOLE (Optional but Recommended)
+   * =================================================================
+   * Provides sane defaults for the Nx Console extension.
+   */
+    "nxConsole.enableTelemetry": false,
+    "scss.validate": true,
+    "search.exclude": {
+        "**/.nx/cache": true,
+        "**/dist": true,
+        "**/node_modules": true,
+        "**/tmp": true
+    },
+    "tailwindCSS.includeLanguages": {
+        "javascript": "javascript",
+        "javascriptreact": "javascript",
+        "typescript": "javascript",
+        "typescriptreact": "javascript"
+    },
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    /**
+   * Disabling the built-in VS Code import sorting (ESLint/Prettier handles this better)
+   */
+    "typescript.organizeImportsWhenSaving": false,
+    "typescript.suggest.autoImports": true,
+    /**
+   * Prevents VS Code's TypeScript server from automatically trying to include 
+   * files outside of the configured tsconfig boundaries.
+   */
+    "typescript.tsc.autoDetect": "off",
+    /**
+   * =================================================================
+   * | TYPESCRIPT & JAVASCRIPT
+   * =================================================================
+   * Forces VS Code to use the TypeScript version installed in the monorepo's
+   * node_modules (which understands path mapping and project references).
+   */
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.updateImportsOnFileMove.enabled": "always"
+}

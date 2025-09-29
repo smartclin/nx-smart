@@ -1,0 +1,10 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { MedicalRecordsOrderByWithRelationInputObjectSchema as MedicalRecordsOrderByWithRelationInputObjectSchema } from './objects/MedicalRecordsOrderByWithRelationInput.schema';
+import { MedicalRecordsWhereInputObjectSchema as MedicalRecordsWhereInputObjectSchema } from './objects/MedicalRecordsWhereInput.schema';
+import { MedicalRecordsWhereUniqueInputObjectSchema as MedicalRecordsWhereUniqueInputObjectSchema } from './objects/MedicalRecordsWhereUniqueInput.schema';
+import { MedicalRecordsCountAggregateInputObjectSchema as MedicalRecordsCountAggregateInputObjectSchema } from './objects/MedicalRecordsCountAggregateInput.schema';
+
+export const MedicalRecordsCountSchema: z.ZodType<Prisma.MedicalRecordsCountArgs> = z.object({ orderBy: z.union([MedicalRecordsOrderByWithRelationInputObjectSchema, MedicalRecordsOrderByWithRelationInputObjectSchema.array()]).optional(), where: MedicalRecordsWhereInputObjectSchema.optional(), cursor: MedicalRecordsWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), select: z.union([ z.literal(true), MedicalRecordsCountAggregateInputObjectSchema ]).optional() }).strict() as unknown as z.ZodType<Prisma.MedicalRecordsCountArgs>;
+
+export const MedicalRecordsCountZodSchema = z.object({ orderBy: z.union([MedicalRecordsOrderByWithRelationInputObjectSchema, MedicalRecordsOrderByWithRelationInputObjectSchema.array()]).optional(), where: MedicalRecordsWhereInputObjectSchema.optional(), cursor: MedicalRecordsWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), select: z.union([ z.literal(true), MedicalRecordsCountAggregateInputObjectSchema ]).optional() }).strict();

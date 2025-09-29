@@ -1,0 +1,15 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { ServicesWhereInputObjectSchema as ServicesWhereInputObjectSchema } from './objects/ServicesWhereInput.schema';
+import { ServicesOrderByWithAggregationInputObjectSchema as ServicesOrderByWithAggregationInputObjectSchema } from './objects/ServicesOrderByWithAggregationInput.schema';
+import { ServicesScalarWhereWithAggregatesInputObjectSchema as ServicesScalarWhereWithAggregatesInputObjectSchema } from './objects/ServicesScalarWhereWithAggregatesInput.schema';
+import { ServicesScalarFieldEnumSchema } from './enums/ServicesScalarFieldEnum.schema';
+import { ServicesCountAggregateInputObjectSchema as ServicesCountAggregateInputObjectSchema } from './objects/ServicesCountAggregateInput.schema';
+import { ServicesMinAggregateInputObjectSchema as ServicesMinAggregateInputObjectSchema } from './objects/ServicesMinAggregateInput.schema';
+import { ServicesMaxAggregateInputObjectSchema as ServicesMaxAggregateInputObjectSchema } from './objects/ServicesMaxAggregateInput.schema';
+import { ServicesAvgAggregateInputObjectSchema as ServicesAvgAggregateInputObjectSchema } from './objects/ServicesAvgAggregateInput.schema';
+import { ServicesSumAggregateInputObjectSchema as ServicesSumAggregateInputObjectSchema } from './objects/ServicesSumAggregateInput.schema';
+
+export const ServicesGroupBySchema: z.ZodType<Prisma.ServicesGroupByArgs> = z.object({ where: ServicesWhereInputObjectSchema.optional(), orderBy: z.union([ServicesOrderByWithAggregationInputObjectSchema, ServicesOrderByWithAggregationInputObjectSchema.array()]).optional(), having: ServicesScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(ServicesScalarFieldEnumSchema), _count: z.union([ z.literal(true), ServicesCountAggregateInputObjectSchema ]).optional(), _min: ServicesMinAggregateInputObjectSchema.optional(), _max: ServicesMaxAggregateInputObjectSchema.optional(), _avg: ServicesAvgAggregateInputObjectSchema.optional(), _sum: ServicesSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.ServicesGroupByArgs>;
+
+export const ServicesGroupByZodSchema = z.object({ where: ServicesWhereInputObjectSchema.optional(), orderBy: z.union([ServicesOrderByWithAggregationInputObjectSchema, ServicesOrderByWithAggregationInputObjectSchema.array()]).optional(), having: ServicesScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(ServicesScalarFieldEnumSchema), _count: z.union([ z.literal(true), ServicesCountAggregateInputObjectSchema ]).optional(), _min: ServicesMinAggregateInputObjectSchema.optional(), _max: ServicesMaxAggregateInputObjectSchema.optional(), _avg: ServicesAvgAggregateInputObjectSchema.optional(), _sum: ServicesSumAggregateInputObjectSchema.optional() }).strict();

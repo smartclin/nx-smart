@@ -1,0 +1,14 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { MedicalRecordsOrderByWithRelationInputObjectSchema as MedicalRecordsOrderByWithRelationInputObjectSchema } from './objects/MedicalRecordsOrderByWithRelationInput.schema';
+import { MedicalRecordsWhereInputObjectSchema as MedicalRecordsWhereInputObjectSchema } from './objects/MedicalRecordsWhereInput.schema';
+import { MedicalRecordsWhereUniqueInputObjectSchema as MedicalRecordsWhereUniqueInputObjectSchema } from './objects/MedicalRecordsWhereUniqueInput.schema';
+import { MedicalRecordsCountAggregateInputObjectSchema as MedicalRecordsCountAggregateInputObjectSchema } from './objects/MedicalRecordsCountAggregateInput.schema';
+import { MedicalRecordsMinAggregateInputObjectSchema as MedicalRecordsMinAggregateInputObjectSchema } from './objects/MedicalRecordsMinAggregateInput.schema';
+import { MedicalRecordsMaxAggregateInputObjectSchema as MedicalRecordsMaxAggregateInputObjectSchema } from './objects/MedicalRecordsMaxAggregateInput.schema';
+import { MedicalRecordsAvgAggregateInputObjectSchema as MedicalRecordsAvgAggregateInputObjectSchema } from './objects/MedicalRecordsAvgAggregateInput.schema';
+import { MedicalRecordsSumAggregateInputObjectSchema as MedicalRecordsSumAggregateInputObjectSchema } from './objects/MedicalRecordsSumAggregateInput.schema';
+
+export const MedicalRecordsAggregateSchema: z.ZodType<Prisma.MedicalRecordsAggregateArgs> = z.object({ orderBy: z.union([MedicalRecordsOrderByWithRelationInputObjectSchema, MedicalRecordsOrderByWithRelationInputObjectSchema.array()]).optional(), where: MedicalRecordsWhereInputObjectSchema.optional(), cursor: MedicalRecordsWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), MedicalRecordsCountAggregateInputObjectSchema ]).optional(), _min: MedicalRecordsMinAggregateInputObjectSchema.optional(), _max: MedicalRecordsMaxAggregateInputObjectSchema.optional(), _avg: MedicalRecordsAvgAggregateInputObjectSchema.optional(), _sum: MedicalRecordsSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.MedicalRecordsAggregateArgs>;
+
+export const MedicalRecordsAggregateZodSchema = z.object({ orderBy: z.union([MedicalRecordsOrderByWithRelationInputObjectSchema, MedicalRecordsOrderByWithRelationInputObjectSchema.array()]).optional(), where: MedicalRecordsWhereInputObjectSchema.optional(), cursor: MedicalRecordsWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), MedicalRecordsCountAggregateInputObjectSchema ]).optional(), _min: MedicalRecordsMinAggregateInputObjectSchema.optional(), _max: MedicalRecordsMaxAggregateInputObjectSchema.optional(), _avg: MedicalRecordsAvgAggregateInputObjectSchema.optional(), _sum: MedicalRecordsSumAggregateInputObjectSchema.optional() }).strict();

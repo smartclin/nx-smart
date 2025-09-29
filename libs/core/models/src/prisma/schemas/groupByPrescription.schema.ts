@@ -1,0 +1,15 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { PrescriptionWhereInputObjectSchema as PrescriptionWhereInputObjectSchema } from './objects/PrescriptionWhereInput.schema';
+import { PrescriptionOrderByWithAggregationInputObjectSchema as PrescriptionOrderByWithAggregationInputObjectSchema } from './objects/PrescriptionOrderByWithAggregationInput.schema';
+import { PrescriptionScalarWhereWithAggregatesInputObjectSchema as PrescriptionScalarWhereWithAggregatesInputObjectSchema } from './objects/PrescriptionScalarWhereWithAggregatesInput.schema';
+import { PrescriptionScalarFieldEnumSchema } from './enums/PrescriptionScalarFieldEnum.schema';
+import { PrescriptionCountAggregateInputObjectSchema as PrescriptionCountAggregateInputObjectSchema } from './objects/PrescriptionCountAggregateInput.schema';
+import { PrescriptionMinAggregateInputObjectSchema as PrescriptionMinAggregateInputObjectSchema } from './objects/PrescriptionMinAggregateInput.schema';
+import { PrescriptionMaxAggregateInputObjectSchema as PrescriptionMaxAggregateInputObjectSchema } from './objects/PrescriptionMaxAggregateInput.schema';
+import { PrescriptionAvgAggregateInputObjectSchema as PrescriptionAvgAggregateInputObjectSchema } from './objects/PrescriptionAvgAggregateInput.schema';
+import { PrescriptionSumAggregateInputObjectSchema as PrescriptionSumAggregateInputObjectSchema } from './objects/PrescriptionSumAggregateInput.schema';
+
+export const PrescriptionGroupBySchema: z.ZodType<Prisma.PrescriptionGroupByArgs> = z.object({ where: PrescriptionWhereInputObjectSchema.optional(), orderBy: z.union([PrescriptionOrderByWithAggregationInputObjectSchema, PrescriptionOrderByWithAggregationInputObjectSchema.array()]).optional(), having: PrescriptionScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(PrescriptionScalarFieldEnumSchema), _count: z.union([ z.literal(true), PrescriptionCountAggregateInputObjectSchema ]).optional(), _min: PrescriptionMinAggregateInputObjectSchema.optional(), _max: PrescriptionMaxAggregateInputObjectSchema.optional(), _avg: PrescriptionAvgAggregateInputObjectSchema.optional(), _sum: PrescriptionSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.PrescriptionGroupByArgs>;
+
+export const PrescriptionGroupByZodSchema = z.object({ where: PrescriptionWhereInputObjectSchema.optional(), orderBy: z.union([PrescriptionOrderByWithAggregationInputObjectSchema, PrescriptionOrderByWithAggregationInputObjectSchema.array()]).optional(), having: PrescriptionScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(PrescriptionScalarFieldEnumSchema), _count: z.union([ z.literal(true), PrescriptionCountAggregateInputObjectSchema ]).optional(), _min: PrescriptionMinAggregateInputObjectSchema.optional(), _max: PrescriptionMaxAggregateInputObjectSchema.optional(), _avg: PrescriptionAvgAggregateInputObjectSchema.optional(), _sum: PrescriptionSumAggregateInputObjectSchema.optional() }).strict();

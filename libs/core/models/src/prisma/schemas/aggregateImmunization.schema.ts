@@ -1,0 +1,12 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { ImmunizationOrderByWithRelationInputObjectSchema as ImmunizationOrderByWithRelationInputObjectSchema } from './objects/ImmunizationOrderByWithRelationInput.schema';
+import { ImmunizationWhereInputObjectSchema as ImmunizationWhereInputObjectSchema } from './objects/ImmunizationWhereInput.schema';
+import { ImmunizationWhereUniqueInputObjectSchema as ImmunizationWhereUniqueInputObjectSchema } from './objects/ImmunizationWhereUniqueInput.schema';
+import { ImmunizationCountAggregateInputObjectSchema as ImmunizationCountAggregateInputObjectSchema } from './objects/ImmunizationCountAggregateInput.schema';
+import { ImmunizationMinAggregateInputObjectSchema as ImmunizationMinAggregateInputObjectSchema } from './objects/ImmunizationMinAggregateInput.schema';
+import { ImmunizationMaxAggregateInputObjectSchema as ImmunizationMaxAggregateInputObjectSchema } from './objects/ImmunizationMaxAggregateInput.schema';
+
+export const ImmunizationAggregateSchema: z.ZodType<Prisma.ImmunizationAggregateArgs> = z.object({ orderBy: z.union([ImmunizationOrderByWithRelationInputObjectSchema, ImmunizationOrderByWithRelationInputObjectSchema.array()]).optional(), where: ImmunizationWhereInputObjectSchema.optional(), cursor: ImmunizationWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), ImmunizationCountAggregateInputObjectSchema ]).optional(), _min: ImmunizationMinAggregateInputObjectSchema.optional(), _max: ImmunizationMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.ImmunizationAggregateArgs>;
+
+export const ImmunizationAggregateZodSchema = z.object({ orderBy: z.union([ImmunizationOrderByWithRelationInputObjectSchema, ImmunizationOrderByWithRelationInputObjectSchema.array()]).optional(), where: ImmunizationWhereInputObjectSchema.optional(), cursor: ImmunizationWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), ImmunizationCountAggregateInputObjectSchema ]).optional(), _min: ImmunizationMinAggregateInputObjectSchema.optional(), _max: ImmunizationMaxAggregateInputObjectSchema.optional() }).strict();

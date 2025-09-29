@@ -1,0 +1,13 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { ImmunizationWhereInputObjectSchema as ImmunizationWhereInputObjectSchema } from './objects/ImmunizationWhereInput.schema';
+import { ImmunizationOrderByWithAggregationInputObjectSchema as ImmunizationOrderByWithAggregationInputObjectSchema } from './objects/ImmunizationOrderByWithAggregationInput.schema';
+import { ImmunizationScalarWhereWithAggregatesInputObjectSchema as ImmunizationScalarWhereWithAggregatesInputObjectSchema } from './objects/ImmunizationScalarWhereWithAggregatesInput.schema';
+import { ImmunizationScalarFieldEnumSchema } from './enums/ImmunizationScalarFieldEnum.schema';
+import { ImmunizationCountAggregateInputObjectSchema as ImmunizationCountAggregateInputObjectSchema } from './objects/ImmunizationCountAggregateInput.schema';
+import { ImmunizationMinAggregateInputObjectSchema as ImmunizationMinAggregateInputObjectSchema } from './objects/ImmunizationMinAggregateInput.schema';
+import { ImmunizationMaxAggregateInputObjectSchema as ImmunizationMaxAggregateInputObjectSchema } from './objects/ImmunizationMaxAggregateInput.schema';
+
+export const ImmunizationGroupBySchema: z.ZodType<Prisma.ImmunizationGroupByArgs> = z.object({ where: ImmunizationWhereInputObjectSchema.optional(), orderBy: z.union([ImmunizationOrderByWithAggregationInputObjectSchema, ImmunizationOrderByWithAggregationInputObjectSchema.array()]).optional(), having: ImmunizationScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(ImmunizationScalarFieldEnumSchema), _count: z.union([ z.literal(true), ImmunizationCountAggregateInputObjectSchema ]).optional(), _min: ImmunizationMinAggregateInputObjectSchema.optional(), _max: ImmunizationMaxAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.ImmunizationGroupByArgs>;
+
+export const ImmunizationGroupByZodSchema = z.object({ where: ImmunizationWhereInputObjectSchema.optional(), orderBy: z.union([ImmunizationOrderByWithAggregationInputObjectSchema, ImmunizationOrderByWithAggregationInputObjectSchema.array()]).optional(), having: ImmunizationScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(ImmunizationScalarFieldEnumSchema), _count: z.union([ z.literal(true), ImmunizationCountAggregateInputObjectSchema ]).optional(), _min: ImmunizationMinAggregateInputObjectSchema.optional(), _max: ImmunizationMaxAggregateInputObjectSchema.optional() }).strict();

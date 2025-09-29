@@ -1,0 +1,14 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { ReminderOrderByWithRelationInputObjectSchema as ReminderOrderByWithRelationInputObjectSchema } from './objects/ReminderOrderByWithRelationInput.schema';
+import { ReminderWhereInputObjectSchema as ReminderWhereInputObjectSchema } from './objects/ReminderWhereInput.schema';
+import { ReminderWhereUniqueInputObjectSchema as ReminderWhereUniqueInputObjectSchema } from './objects/ReminderWhereUniqueInput.schema';
+import { ReminderCountAggregateInputObjectSchema as ReminderCountAggregateInputObjectSchema } from './objects/ReminderCountAggregateInput.schema';
+import { ReminderMinAggregateInputObjectSchema as ReminderMinAggregateInputObjectSchema } from './objects/ReminderMinAggregateInput.schema';
+import { ReminderMaxAggregateInputObjectSchema as ReminderMaxAggregateInputObjectSchema } from './objects/ReminderMaxAggregateInput.schema';
+import { ReminderAvgAggregateInputObjectSchema as ReminderAvgAggregateInputObjectSchema } from './objects/ReminderAvgAggregateInput.schema';
+import { ReminderSumAggregateInputObjectSchema as ReminderSumAggregateInputObjectSchema } from './objects/ReminderSumAggregateInput.schema';
+
+export const ReminderAggregateSchema: z.ZodType<Prisma.ReminderAggregateArgs> = z.object({ orderBy: z.union([ReminderOrderByWithRelationInputObjectSchema, ReminderOrderByWithRelationInputObjectSchema.array()]).optional(), where: ReminderWhereInputObjectSchema.optional(), cursor: ReminderWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), ReminderCountAggregateInputObjectSchema ]).optional(), _min: ReminderMinAggregateInputObjectSchema.optional(), _max: ReminderMaxAggregateInputObjectSchema.optional(), _avg: ReminderAvgAggregateInputObjectSchema.optional(), _sum: ReminderSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.ReminderAggregateArgs>;
+
+export const ReminderAggregateZodSchema = z.object({ orderBy: z.union([ReminderOrderByWithRelationInputObjectSchema, ReminderOrderByWithRelationInputObjectSchema.array()]).optional(), where: ReminderWhereInputObjectSchema.optional(), cursor: ReminderWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), ReminderCountAggregateInputObjectSchema ]).optional(), _min: ReminderMinAggregateInputObjectSchema.optional(), _max: ReminderMaxAggregateInputObjectSchema.optional(), _avg: ReminderAvgAggregateInputObjectSchema.optional(), _sum: ReminderSumAggregateInputObjectSchema.optional() }).strict();

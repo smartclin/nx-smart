@@ -1,10 +1,15 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "generators": {
+    "@nx/next": {
+      "application": {
+        "linter": "none",
+        "style": "tailwind"
+      }
+    }
+  },
   "namedInputs": {
-    "default": [
-      "{projectRoot}/**/*",
-      "sharedGlobals"
-    ],
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": [
       "default",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
@@ -18,56 +23,67 @@
   "nxCloudId": "68da9860b3db987579167562",
   "plugins": [
     {
-      "plugin": "@nx/js/typescript",
+      "exclude": ["libs/prisma/schema/*"],
       "options": {
+        "build": {
+          "buildDepsName": "build-deps",
+          "configName": "tsconfig.lib.json",
+          "targetName": "build",
+          "watchDepsName": "watch-deps"
+        },
         "typecheck": {
           "targetName": "typecheck"
-        },
-        "build": {
-          "targetName": "build",
-          "configName": "tsconfig.lib.json",
-          "buildDepsName": "build-deps",
-          "watchDepsName": "watch-deps"
         }
-      }
+      },
+      "plugin": "@nx/js/typescript"
     },
     {
-      "plugin": "@nx/next/plugin",
       "options": {
-        "startTargetName": "start",
+        "buildDepsTargetName": "build-deps",
         "buildTargetName": "build",
         "devTargetName": "dev",
         "serveStaticTargetName": "serve-static",
-        "buildDepsTargetName": "build-deps",
+        "startTargetName": "start",
         "watchDepsTargetName": "watch-deps"
-      }
+      },
+      "plugin": "@nx/next/plugin"
     },
     {
-      "plugin": "@nx/playwright/plugin",
       "options": {
         "targetName": "e2e"
-      }
+      },
+      "plugin": "@nx/playwright/plugin"
     },
     {
-      "plugin": "@nx/jest/plugin",
       "options": {
         "targetName": "test"
+      },
+      "plugin": "@nx/jest/plugin"
+    },
+    {
+      "include": ["libs/prisma/schema/*"],
+      "options": {
+        "typecheck": {
+          "targetName": "typecheck"
+        }
+      },
+      "plugin": "@nx/js/typescript"
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "eslint:lint"
       }
     }
   ],
   "targetDefaults": {
     "test": {
-      "dependsOn": [
-        "^build"
-      ]
-    }
-  },
-  "generators": {
-    "@nx/next": {
-      "application": {
-        "style": "tailwind",
-        "linter": "none"
-      }
+      "dependsOn": ["^build"]
+    },
+    "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   }
 }

@@ -1,0 +1,14 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { WorkingDaysOrderByWithRelationInputObjectSchema as WorkingDaysOrderByWithRelationInputObjectSchema } from './objects/WorkingDaysOrderByWithRelationInput.schema';
+import { WorkingDaysWhereInputObjectSchema as WorkingDaysWhereInputObjectSchema } from './objects/WorkingDaysWhereInput.schema';
+import { WorkingDaysWhereUniqueInputObjectSchema as WorkingDaysWhereUniqueInputObjectSchema } from './objects/WorkingDaysWhereUniqueInput.schema';
+import { WorkingDaysCountAggregateInputObjectSchema as WorkingDaysCountAggregateInputObjectSchema } from './objects/WorkingDaysCountAggregateInput.schema';
+import { WorkingDaysMinAggregateInputObjectSchema as WorkingDaysMinAggregateInputObjectSchema } from './objects/WorkingDaysMinAggregateInput.schema';
+import { WorkingDaysMaxAggregateInputObjectSchema as WorkingDaysMaxAggregateInputObjectSchema } from './objects/WorkingDaysMaxAggregateInput.schema';
+import { WorkingDaysAvgAggregateInputObjectSchema as WorkingDaysAvgAggregateInputObjectSchema } from './objects/WorkingDaysAvgAggregateInput.schema';
+import { WorkingDaysSumAggregateInputObjectSchema as WorkingDaysSumAggregateInputObjectSchema } from './objects/WorkingDaysSumAggregateInput.schema';
+
+export const WorkingDaysAggregateSchema: z.ZodType<Prisma.WorkingDaysAggregateArgs> = z.object({ orderBy: z.union([WorkingDaysOrderByWithRelationInputObjectSchema, WorkingDaysOrderByWithRelationInputObjectSchema.array()]).optional(), where: WorkingDaysWhereInputObjectSchema.optional(), cursor: WorkingDaysWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), WorkingDaysCountAggregateInputObjectSchema ]).optional(), _min: WorkingDaysMinAggregateInputObjectSchema.optional(), _max: WorkingDaysMaxAggregateInputObjectSchema.optional(), _avg: WorkingDaysAvgAggregateInputObjectSchema.optional(), _sum: WorkingDaysSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.WorkingDaysAggregateArgs>;
+
+export const WorkingDaysAggregateZodSchema = z.object({ orderBy: z.union([WorkingDaysOrderByWithRelationInputObjectSchema, WorkingDaysOrderByWithRelationInputObjectSchema.array()]).optional(), where: WorkingDaysWhereInputObjectSchema.optional(), cursor: WorkingDaysWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), WorkingDaysCountAggregateInputObjectSchema ]).optional(), _min: WorkingDaysMinAggregateInputObjectSchema.optional(), _max: WorkingDaysMaxAggregateInputObjectSchema.optional(), _avg: WorkingDaysAvgAggregateInputObjectSchema.optional(), _sum: WorkingDaysSumAggregateInputObjectSchema.optional() }).strict();

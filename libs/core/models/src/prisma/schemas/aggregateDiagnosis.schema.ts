@@ -1,0 +1,14 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { DiagnosisOrderByWithRelationInputObjectSchema as DiagnosisOrderByWithRelationInputObjectSchema } from './objects/DiagnosisOrderByWithRelationInput.schema';
+import { DiagnosisWhereInputObjectSchema as DiagnosisWhereInputObjectSchema } from './objects/DiagnosisWhereInput.schema';
+import { DiagnosisWhereUniqueInputObjectSchema as DiagnosisWhereUniqueInputObjectSchema } from './objects/DiagnosisWhereUniqueInput.schema';
+import { DiagnosisCountAggregateInputObjectSchema as DiagnosisCountAggregateInputObjectSchema } from './objects/DiagnosisCountAggregateInput.schema';
+import { DiagnosisMinAggregateInputObjectSchema as DiagnosisMinAggregateInputObjectSchema } from './objects/DiagnosisMinAggregateInput.schema';
+import { DiagnosisMaxAggregateInputObjectSchema as DiagnosisMaxAggregateInputObjectSchema } from './objects/DiagnosisMaxAggregateInput.schema';
+import { DiagnosisAvgAggregateInputObjectSchema as DiagnosisAvgAggregateInputObjectSchema } from './objects/DiagnosisAvgAggregateInput.schema';
+import { DiagnosisSumAggregateInputObjectSchema as DiagnosisSumAggregateInputObjectSchema } from './objects/DiagnosisSumAggregateInput.schema';
+
+export const DiagnosisAggregateSchema: z.ZodType<Prisma.DiagnosisAggregateArgs> = z.object({ orderBy: z.union([DiagnosisOrderByWithRelationInputObjectSchema, DiagnosisOrderByWithRelationInputObjectSchema.array()]).optional(), where: DiagnosisWhereInputObjectSchema.optional(), cursor: DiagnosisWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), DiagnosisCountAggregateInputObjectSchema ]).optional(), _min: DiagnosisMinAggregateInputObjectSchema.optional(), _max: DiagnosisMaxAggregateInputObjectSchema.optional(), _avg: DiagnosisAvgAggregateInputObjectSchema.optional(), _sum: DiagnosisSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.DiagnosisAggregateArgs>;
+
+export const DiagnosisAggregateZodSchema = z.object({ orderBy: z.union([DiagnosisOrderByWithRelationInputObjectSchema, DiagnosisOrderByWithRelationInputObjectSchema.array()]).optional(), where: DiagnosisWhereInputObjectSchema.optional(), cursor: DiagnosisWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), DiagnosisCountAggregateInputObjectSchema ]).optional(), _min: DiagnosisMinAggregateInputObjectSchema.optional(), _max: DiagnosisMaxAggregateInputObjectSchema.optional(), _avg: DiagnosisAvgAggregateInputObjectSchema.optional(), _sum: DiagnosisSumAggregateInputObjectSchema.optional() }).strict();

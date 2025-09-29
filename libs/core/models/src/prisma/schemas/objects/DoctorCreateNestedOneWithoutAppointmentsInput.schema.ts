@@ -1,0 +1,14 @@
+import { z } from 'zod';
+import type { Prisma } from '../../../../../../../node_modules/.prisma/client';
+import { DoctorCreateWithoutAppointmentsInputObjectSchema as DoctorCreateWithoutAppointmentsInputObjectSchema } from './DoctorCreateWithoutAppointmentsInput.schema';
+import { DoctorUncheckedCreateWithoutAppointmentsInputObjectSchema as DoctorUncheckedCreateWithoutAppointmentsInputObjectSchema } from './DoctorUncheckedCreateWithoutAppointmentsInput.schema';
+import { DoctorCreateOrConnectWithoutAppointmentsInputObjectSchema as DoctorCreateOrConnectWithoutAppointmentsInputObjectSchema } from './DoctorCreateOrConnectWithoutAppointmentsInput.schema';
+import { DoctorWhereUniqueInputObjectSchema as DoctorWhereUniqueInputObjectSchema } from './DoctorWhereUniqueInput.schema'
+
+const makeSchema = () => z.object({
+  create: z.union([z.lazy(() => DoctorCreateWithoutAppointmentsInputObjectSchema), z.lazy(() => DoctorUncheckedCreateWithoutAppointmentsInputObjectSchema)]).optional(),
+  connectOrCreate: z.lazy(() => DoctorCreateOrConnectWithoutAppointmentsInputObjectSchema).optional(),
+  connect: z.lazy(() => DoctorWhereUniqueInputObjectSchema).optional()
+}).strict();
+export const DoctorCreateNestedOneWithoutAppointmentsInputObjectSchema: z.ZodType<Prisma.DoctorCreateNestedOneWithoutAppointmentsInput> = makeSchema() as unknown as z.ZodType<Prisma.DoctorCreateNestedOneWithoutAppointmentsInput>;
+export const DoctorCreateNestedOneWithoutAppointmentsInputObjectZodSchema = makeSchema();

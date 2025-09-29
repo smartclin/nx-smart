@@ -1,0 +1,10 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { WHOGrowthStandardOrderByWithRelationInputObjectSchema as WHOGrowthStandardOrderByWithRelationInputObjectSchema } from './objects/WHOGrowthStandardOrderByWithRelationInput.schema';
+import { WHOGrowthStandardWhereInputObjectSchema as WHOGrowthStandardWhereInputObjectSchema } from './objects/WHOGrowthStandardWhereInput.schema';
+import { WHOGrowthStandardWhereUniqueInputObjectSchema as WHOGrowthStandardWhereUniqueInputObjectSchema } from './objects/WHOGrowthStandardWhereUniqueInput.schema';
+import { WHOGrowthStandardCountAggregateInputObjectSchema as WHOGrowthStandardCountAggregateInputObjectSchema } from './objects/WHOGrowthStandardCountAggregateInput.schema';
+
+export const WHOGrowthStandardCountSchema: z.ZodType<Prisma.WHOGrowthStandardCountArgs> = z.object({ orderBy: z.union([WHOGrowthStandardOrderByWithRelationInputObjectSchema, WHOGrowthStandardOrderByWithRelationInputObjectSchema.array()]).optional(), where: WHOGrowthStandardWhereInputObjectSchema.optional(), cursor: WHOGrowthStandardWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), select: z.union([ z.literal(true), WHOGrowthStandardCountAggregateInputObjectSchema ]).optional() }).strict() as unknown as z.ZodType<Prisma.WHOGrowthStandardCountArgs>;
+
+export const WHOGrowthStandardCountZodSchema = z.object({ orderBy: z.union([WHOGrowthStandardOrderByWithRelationInputObjectSchema, WHOGrowthStandardOrderByWithRelationInputObjectSchema.array()]).optional(), where: WHOGrowthStandardWhereInputObjectSchema.optional(), cursor: WHOGrowthStandardWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), select: z.union([ z.literal(true), WHOGrowthStandardCountAggregateInputObjectSchema ]).optional() }).strict();

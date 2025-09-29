@@ -1,0 +1,14 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { PatientBillsOrderByWithRelationInputObjectSchema as PatientBillsOrderByWithRelationInputObjectSchema } from './objects/PatientBillsOrderByWithRelationInput.schema';
+import { PatientBillsWhereInputObjectSchema as PatientBillsWhereInputObjectSchema } from './objects/PatientBillsWhereInput.schema';
+import { PatientBillsWhereUniqueInputObjectSchema as PatientBillsWhereUniqueInputObjectSchema } from './objects/PatientBillsWhereUniqueInput.schema';
+import { PatientBillsCountAggregateInputObjectSchema as PatientBillsCountAggregateInputObjectSchema } from './objects/PatientBillsCountAggregateInput.schema';
+import { PatientBillsMinAggregateInputObjectSchema as PatientBillsMinAggregateInputObjectSchema } from './objects/PatientBillsMinAggregateInput.schema';
+import { PatientBillsMaxAggregateInputObjectSchema as PatientBillsMaxAggregateInputObjectSchema } from './objects/PatientBillsMaxAggregateInput.schema';
+import { PatientBillsAvgAggregateInputObjectSchema as PatientBillsAvgAggregateInputObjectSchema } from './objects/PatientBillsAvgAggregateInput.schema';
+import { PatientBillsSumAggregateInputObjectSchema as PatientBillsSumAggregateInputObjectSchema } from './objects/PatientBillsSumAggregateInput.schema';
+
+export const PatientBillsAggregateSchema: z.ZodType<Prisma.PatientBillsAggregateArgs> = z.object({ orderBy: z.union([PatientBillsOrderByWithRelationInputObjectSchema, PatientBillsOrderByWithRelationInputObjectSchema.array()]).optional(), where: PatientBillsWhereInputObjectSchema.optional(), cursor: PatientBillsWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), PatientBillsCountAggregateInputObjectSchema ]).optional(), _min: PatientBillsMinAggregateInputObjectSchema.optional(), _max: PatientBillsMaxAggregateInputObjectSchema.optional(), _avg: PatientBillsAvgAggregateInputObjectSchema.optional(), _sum: PatientBillsSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.PatientBillsAggregateArgs>;
+
+export const PatientBillsAggregateZodSchema = z.object({ orderBy: z.union([PatientBillsOrderByWithRelationInputObjectSchema, PatientBillsOrderByWithRelationInputObjectSchema.array()]).optional(), where: PatientBillsWhereInputObjectSchema.optional(), cursor: PatientBillsWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), PatientBillsCountAggregateInputObjectSchema ]).optional(), _min: PatientBillsMinAggregateInputObjectSchema.optional(), _max: PatientBillsMaxAggregateInputObjectSchema.optional(), _avg: PatientBillsAvgAggregateInputObjectSchema.optional(), _sum: PatientBillsSumAggregateInputObjectSchema.optional() }).strict();

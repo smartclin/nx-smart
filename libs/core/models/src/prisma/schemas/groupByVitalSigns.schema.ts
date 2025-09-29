@@ -1,0 +1,15 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { VitalSignsWhereInputObjectSchema as VitalSignsWhereInputObjectSchema } from './objects/VitalSignsWhereInput.schema';
+import { VitalSignsOrderByWithAggregationInputObjectSchema as VitalSignsOrderByWithAggregationInputObjectSchema } from './objects/VitalSignsOrderByWithAggregationInput.schema';
+import { VitalSignsScalarWhereWithAggregatesInputObjectSchema as VitalSignsScalarWhereWithAggregatesInputObjectSchema } from './objects/VitalSignsScalarWhereWithAggregatesInput.schema';
+import { VitalSignsScalarFieldEnumSchema } from './enums/VitalSignsScalarFieldEnum.schema';
+import { VitalSignsCountAggregateInputObjectSchema as VitalSignsCountAggregateInputObjectSchema } from './objects/VitalSignsCountAggregateInput.schema';
+import { VitalSignsMinAggregateInputObjectSchema as VitalSignsMinAggregateInputObjectSchema } from './objects/VitalSignsMinAggregateInput.schema';
+import { VitalSignsMaxAggregateInputObjectSchema as VitalSignsMaxAggregateInputObjectSchema } from './objects/VitalSignsMaxAggregateInput.schema';
+import { VitalSignsAvgAggregateInputObjectSchema as VitalSignsAvgAggregateInputObjectSchema } from './objects/VitalSignsAvgAggregateInput.schema';
+import { VitalSignsSumAggregateInputObjectSchema as VitalSignsSumAggregateInputObjectSchema } from './objects/VitalSignsSumAggregateInput.schema';
+
+export const VitalSignsGroupBySchema: z.ZodType<Prisma.VitalSignsGroupByArgs> = z.object({ where: VitalSignsWhereInputObjectSchema.optional(), orderBy: z.union([VitalSignsOrderByWithAggregationInputObjectSchema, VitalSignsOrderByWithAggregationInputObjectSchema.array()]).optional(), having: VitalSignsScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(VitalSignsScalarFieldEnumSchema), _count: z.union([ z.literal(true), VitalSignsCountAggregateInputObjectSchema ]).optional(), _min: VitalSignsMinAggregateInputObjectSchema.optional(), _max: VitalSignsMaxAggregateInputObjectSchema.optional(), _avg: VitalSignsAvgAggregateInputObjectSchema.optional(), _sum: VitalSignsSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.VitalSignsGroupByArgs>;
+
+export const VitalSignsGroupByZodSchema = z.object({ where: VitalSignsWhereInputObjectSchema.optional(), orderBy: z.union([VitalSignsOrderByWithAggregationInputObjectSchema, VitalSignsOrderByWithAggregationInputObjectSchema.array()]).optional(), having: VitalSignsScalarWhereWithAggregatesInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), by: z.array(VitalSignsScalarFieldEnumSchema), _count: z.union([ z.literal(true), VitalSignsCountAggregateInputObjectSchema ]).optional(), _min: VitalSignsMinAggregateInputObjectSchema.optional(), _max: VitalSignsMaxAggregateInputObjectSchema.optional(), _avg: VitalSignsAvgAggregateInputObjectSchema.optional(), _sum: VitalSignsSumAggregateInputObjectSchema.optional() }).strict();

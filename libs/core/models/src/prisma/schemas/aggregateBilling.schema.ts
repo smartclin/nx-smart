@@ -1,0 +1,14 @@
+import type { Prisma } from '../../../../../../node_modules/.prisma/client';
+import { z } from 'zod';
+import { BillingOrderByWithRelationInputObjectSchema as BillingOrderByWithRelationInputObjectSchema } from './objects/BillingOrderByWithRelationInput.schema';
+import { BillingWhereInputObjectSchema as BillingWhereInputObjectSchema } from './objects/BillingWhereInput.schema';
+import { BillingWhereUniqueInputObjectSchema as BillingWhereUniqueInputObjectSchema } from './objects/BillingWhereUniqueInput.schema';
+import { BillingCountAggregateInputObjectSchema as BillingCountAggregateInputObjectSchema } from './objects/BillingCountAggregateInput.schema';
+import { BillingMinAggregateInputObjectSchema as BillingMinAggregateInputObjectSchema } from './objects/BillingMinAggregateInput.schema';
+import { BillingMaxAggregateInputObjectSchema as BillingMaxAggregateInputObjectSchema } from './objects/BillingMaxAggregateInput.schema';
+import { BillingAvgAggregateInputObjectSchema as BillingAvgAggregateInputObjectSchema } from './objects/BillingAvgAggregateInput.schema';
+import { BillingSumAggregateInputObjectSchema as BillingSumAggregateInputObjectSchema } from './objects/BillingSumAggregateInput.schema';
+
+export const BillingAggregateSchema: z.ZodType<Prisma.BillingAggregateArgs> = z.object({ orderBy: z.union([BillingOrderByWithRelationInputObjectSchema, BillingOrderByWithRelationInputObjectSchema.array()]).optional(), where: BillingWhereInputObjectSchema.optional(), cursor: BillingWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), BillingCountAggregateInputObjectSchema ]).optional(), _min: BillingMinAggregateInputObjectSchema.optional(), _max: BillingMaxAggregateInputObjectSchema.optional(), _avg: BillingAvgAggregateInputObjectSchema.optional(), _sum: BillingSumAggregateInputObjectSchema.optional() }).strict() as unknown as z.ZodType<Prisma.BillingAggregateArgs>;
+
+export const BillingAggregateZodSchema = z.object({ orderBy: z.union([BillingOrderByWithRelationInputObjectSchema, BillingOrderByWithRelationInputObjectSchema.array()]).optional(), where: BillingWhereInputObjectSchema.optional(), cursor: BillingWhereUniqueInputObjectSchema.optional(), take: z.number().optional(), skip: z.number().optional(), _count: z.union([ z.literal(true), BillingCountAggregateInputObjectSchema ]).optional(), _min: BillingMinAggregateInputObjectSchema.optional(), _max: BillingMaxAggregateInputObjectSchema.optional(), _avg: BillingAvgAggregateInputObjectSchema.optional(), _sum: BillingSumAggregateInputObjectSchema.optional() }).strict();

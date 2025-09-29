@@ -1,0 +1,528 @@
+model Patient {
+  id                     String           @id @default(uuid())
+  firstName              String
+  lastName               String
+  userId                 String           @unique
+  user                   User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  dateOfBirth            DateTime
+  gender                 Gender           @default(Male)
+  phone                  String?
+  email                  String           @unique
+  nutritionalStatus      String?
+  address                String?
+  emergencyContactName   String?
+  emergencyContactNumber String?
+  relation               String?
+  bloodGroup             String?
+  allergies              String?
+  medicalConditions      String?
+  medicalHistory         String?
+  img                    String?
+  colorCode              String?
+  role                   Role?
+  appointments           Appointment[]
+  medical                MedicalRecords[]
+  payments               Payment[]
+  encounters             Encounter[]
+  immunizations          Immunization[]
+  growthCharts           GrowthChart[]
+  feedingLogs            FeedingLog[]
+  billing                Billing[]
+  createdAt              DateTime         @default(now())
+  updatedAt              DateTime         @updatedAt
+  status                 String?          @default("active")
+  prescriptions          Prescription[]
+
+  @@index([lastName])
+}
+
+model Doctor {
+  id     String @id @default(uuid())
+  email  String @unique
+  name   String
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  specialization     String
+  licenseNumber      String?
+  phone              String?
+  address            String?
+  department         String?
+  img                String?
+  colorCode          String?
+  availabilityStatus String?
+  isActive           Boolean?
+  type               JOBTYPE       @default(FULL)
+  workingDays        WorkingDays[]
+  appointments       Appointment[]
+  diagnosis          Diagnosis[]
+  role               Role?
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+
+  Prescription Prescription[]
+
+  Encounter      Encounter[]
+  MedicalRecords MedicalRecords[]
+}
+
+model WorkingDays {
+  id        Int    @id @default(autoincrement())
+  doctorId  String
+  day       String
+  startTime String
+  closeTime String
+
+  doctor Doctor @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([doctorId, day])
+}
+
+model Staff {
+  id     String @id @default(uuid())
+  email  String @unique
+  name   String
+  phone  String
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  address       String
+  department    String?
+  img           String?
+  licenseNumber String?
+  colorCode     String?
+  hireDate      DateTime? @default(now()) // When they were hired
+  salary        Float? // Optional, for internal use
+
+  role   Role
+  status Status @default(ACTIVE)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  immunizations Immunization[] @relation("AdministeredByStaff")
+
+  GrowthChart GrowthChart[]
+}
+
+model Appointment {
+  id        Int    @id @default(autoincrement())
+  patientId String
+  doctorId  String
+  serviceId Int?
+
+  appointmentDate DateTime
+  time            String
+  status          AppointmentStatus? @default(PENDING)
+  type            String
+  note            String?
+  patient         Patient            @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  doctor          Doctor             @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  service         Services?          @relation(fields: [serviceId], references: [id])
+  bills           Payment[]
+  medical         MedicalRecords[]
+  reminders       Reminder[]
+  reason          String?
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  Billing         Billing[]
+
+  @@index([patientId, appointmentDate])
+}
+
+model Payment {
+  id            Int      @id @default(autoincrement())
+  billId        Int?
+  patientId     String
+  appointmentId Int      @unique
+  billDate      DateTime
+  paymentDate   DateTime
+  discount      Float
+  totalAmount   Float
+  amountPaid    Float
+
+  paymentMethod PaymentMethod @default(CASH)
+  status        PaymentStatus @default(UNPAID)
+  receiptNumber Int
+
+  appointment Appointment    @relation(fields: [appointmentId], references: [id], onDelete: Cascade)
+  patient     Patient        @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  bills       PatientBills[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Reminder {
+  id            String         @id @default(cuid())
+  appointmentId Int
+  appointment   Appointment    @relation(fields: [appointmentId], references: [id], onDelete: Cascade)
+  method        ReminderMethod
+  sentAt        DateTime
+  status        ReminderStatus
+}
+
+model PatientBills {
+  id          Int      @id @default(autoincrement())
+  billId      Int
+  serviceId   Int
+  serviceDate DateTime
+  quantity    Int
+  unitCost    Float
+  totalCost   Float
+  service     Services @relation(fields: [serviceId], references: [id])
+  payment     Payment  @relation(fields: [billId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model LabTest {
+  id        Int       @id @default(autoincrement())
+  recordId  Int
+  testDate  DateTime
+  result    String
+  status    String
+  notes     String?
+  serviceId Int?
+  services  Services? @relation(fields: [serviceId], references: [id])
+
+  medicalRecord MedicalRecords @relation(fields: [recordId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model MedicalRecords {
+  id            Int    @id @default(autoincrement())
+  patientId     String
+  appointmentId Int
+  doctorId      String // Assuming this is a foreign key to a Doctor model
+
+  treatmentPlan String?
+  prescriptions String?
+  labRequest    String?
+  notes         String?
+
+  // Relations
+  appointment Appointment @relation(fields: [appointmentId], references: [id], onDelete: Cascade)
+  patient     Patient     @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  doctor      Doctor      @relation(fields: [doctorId], references: [id])
+
+  labTests          LabTest[] // Renamed for consistency
+  encounters        Encounter[] // Renamed for consistency
+  diagnoses         Diagnosis[] // Renamed for consistency
+  prescriptionsList Prescription[] // Renamed to avoid clash with field
+  vitalSigns        VitalSigns[] // Renamed for consistency
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([patientId, appointmentId])
+}
+
+model Encounter {
+  id        String         @id @default(cuid())
+  patientId String
+  patient   Patient        @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  doctorId  String
+  doctor    Doctor         @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  date      DateTime       @default(now())
+  type      String // Consultation, Follow-up, etc.
+  diagnosis String?
+  treatment String?
+  notes     String?
+  medicalId Int
+  medical   MedicalRecords @relation(fields: [medicalId], references: [id], onDelete: Cascade)
+
+  // Relations
+  vitalSigns VitalSigns[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model VitalSigns {
+  id          String         @id @default(cuid())
+  encounterId String?
+  encounter   Encounter?     @relation(fields: [encounterId], references: [id], onDelete: Cascade)
+  patientId   String
+  medicalId   Int
+  medical     MedicalRecords @relation(fields: [medicalId], references: [id], onDelete: Cascade)
+
+  height           Float? // in cm
+  weight           Float? // in kg
+  temperature      Float? // in Celsius
+  systolic         Int?
+  diastolic        Int?
+  heartRate        Int? // numeric is better for charting
+  respiratoryRate  Int?
+  oxygenSaturation Int?
+
+  recordedAt DateTime @default(now())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Immunization {
+  id                    String   @id @default(cuid())
+  patientId             String
+  patient               Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  vaccine               String
+  date                  DateTime
+  dose                  String?
+  lotNumber             String?
+  administeredByStaffId String?
+  administeredBy        Staff?   @relation("AdministeredByStaff", fields: [administeredByStaffId], references: [id])
+  notes                 String?
+  createdAt             DateTime @default(now())
+
+  @@index([patientId, date])
+}
+
+model GrowthChart {
+  id                String   @id @default(cuid())
+  patientId         String
+  gender            Gender?
+  patient           Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  date              DateTime @default(now())
+  ageInDays         Int // in months
+  height            Float // in cm
+  weight            Float // in kg
+  headCircumference Float? // in cm
+  percentileHeight  Float?
+  percentileWeight  Float?
+  percentileHead    Float?
+  measuredById      String?
+  measuredBy        Staff?   @relation(fields: [measuredById], references: [id])
+  heightZScore      Float?
+  weightZScore      Float?
+  notes             String?
+
+  @@index([patientId, date])
+}
+
+model FeedingLog {
+  id        String      @id @default(cuid())
+  patientId String
+  patient   Patient     @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  date      DateTime    @default(now())
+  type      FeedingType // Breast, Formula, Mixed
+  duration  Int? // in minutes
+  amount    Float? // in ml for formula
+  breast    String? // Left, Right, Both
+  notes     String?
+
+  @@index([patientId, date])
+}
+
+model Billing {
+  id            String        @id @default(cuid())
+  patientId     String
+  patient       Patient       @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  appointmentId Int?
+  appointment   Appointment?  @relation(fields: [appointmentId], references: [id], onDelete: Cascade)
+  amount        Float
+  status        BillingStatus @default(PENDING)
+  insurance     String?
+  insuranceId   String?
+  serviceDate   DateTime
+  dueDate       DateTime
+  paidDate      DateTime?
+  notes         String?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@index([patientId, status])
+}
+
+model Notification {
+  id        String           @id @default(cuid())
+  userId    String
+  user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  message   String
+  type      NotificationType
+  read      Boolean          @default(false)
+  createdAt DateTime         @default(now())
+}
+
+model Diagnosis {
+  id                    Int     @id @default(autoincrement())
+  patientId             String
+  medicalId             Int
+  doctorId              String
+  doctor                Doctor  @relation(fields: [doctorId], references: [id])
+  symptoms              String
+  diagnosis             String
+  notes                 String?
+  prescribedMedications String?
+  followUpPlan          String?
+
+  medical MedicalRecords @relation(fields: [medicalId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Services {
+  id          Int              @id @default(autoincrement())
+  serviceName String
+  description String
+  price       Float
+  labtests    LabTest[]
+  bills       PatientBills[]
+  category    ServiceCategory? // Optional categorization
+  duration    Int? // Duration in minutes
+  isAvailable Boolean          @default(true) // Whether the service is currently offered
+
+  appointments Appointment[] // A service can be part of many appointments
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([serviceName])
+}
+
+model Prescription {
+  id              Int     @id @default(autoincrement())
+  medicalRecordId Int     @map("medical_record_id")
+  doctorId        String? // Doctor who issued the prescription (optional if already linked via medicalRecord.doctor)
+  patientId       String // Patient the prescription is for (redundant if linked via medicalRecord.patient, but ensures direct access)
+
+  medicationName String    @map("medication_name")
+  dosage         String    @map("dosage") // e.g., "250mg", "1 tablet"
+  frequency      String    @map("frequency") // e.g., "Once a day", "Every 4 hours"
+  duration       String    @map("duration") // e.g., "7 days", "Until finished"
+  instructions   String?   @map("instructions") // Special instructions
+  issuedDate     DateTime  @default(now()) @map("issued_date")
+  endDate        DateTime? @map("end_date") // When the prescription is valid until
+  status         String    @default("active") // e.g., "active", "completed", "cancelled" - consider an enum
+
+  // Relations
+  medicalRecord MedicalRecords @relation(fields: [medicalRecordId], references: [id], onDelete: Cascade)
+  doctor        Doctor?        @relation(fields: [doctorId], references: [id])
+  patient       Patient        @relation(fields: [patientId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("prescriptions")
+}
+
+model WHOGrowthStandard {
+  id              Int             @id @default(autoincrement())
+  ageInMonths     Int             @map("age_in_months") // Renamed from ageDays for clarity, common in WHO standards
+  gender          Gender
+  measurementType MeasurementType @map("measurement_type") // e.g., Weight-for-age, Height-for-age
+  lValue          Float           @map("l_value")
+  mValue          Float           @map("m_value")
+  sValue          Float           @map("s_value")
+  sd0             Float           @map("sd0")
+  sd1neg          Float           @map("sd1neg")
+  sd1pos          Float           @map("sd1pos")
+  sd2neg          Float           @map("sd2neg")
+  sd2pos          Float           @map("sd2pos")
+  sd3neg          Float           @map("sd3neg")
+  sd3pos          Float           @map("sd3pos")
+  sd4neg          Float?          @map("sd4neg")
+  sd4pos          Float?          @map("sd4pos")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("who_growth_standards")
+}
+
+enum Role {
+  ADMIN
+  STAFF
+  DOCTOR
+  PATIENT
+}
+
+enum Status {
+  ACTIVE
+  INACTIVE
+  DORMANT
+}
+
+enum JOBTYPE {
+  FULL
+  PART
+}
+
+enum AppointmentStatus {
+  PENDING
+  SCHEDULED
+  CANCELLED
+  COMPLETED
+}
+
+enum PaymentMethod {
+  CASH
+  CARD
+  MOBILE
+}
+
+enum PaymentStatus {
+  PAID
+  UNPAID
+  PARTIAL
+  REFUNDED
+}
+
+enum ServiceCategory {
+  CONSULTATION
+  LAB_TEST
+  VACCINATION
+  PROCEDURE
+  PHARMACY
+  DIAGNOSIS
+  OTHER
+}
+
+enum MeasurementType {
+  WFA
+  HFA
+  HcFA
+}
+
+enum ChatRole {
+  USER
+  AI
+}
+
+enum ReminderMethod {
+  EMAIL
+  SMS
+}
+
+enum ReminderStatus {
+  SENT
+  FAILED
+  PENDING
+}
+
+enum BillingStatus {
+  PENDING
+  PAID
+  INSURANCE_PENDING
+  DENIED
+}
+
+enum NotificationType {
+  APPOINTMENT_REMINDER
+  BILLING
+  GENERAL
+  SECURITY
+}
+
+enum FeedingType {
+  BREAST
+  FORMULA
+  MIXED
+}

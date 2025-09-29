@@ -1,0 +1,66 @@
+import { z } from 'zod';
+export const PaymentAggregateResultSchema = z.object({  _count: z.object({
+    id: z.number(),
+    billId: z.number(),
+    patientId: z.number(),
+    appointmentId: z.number(),
+    billDate: z.number(),
+    paymentDate: z.number(),
+    discount: z.number(),
+    totalAmount: z.number(),
+    amountPaid: z.number(),
+    paymentMethod: z.number(),
+    status: z.number(),
+    receiptNumber: z.number(),
+    appointment: z.number(),
+    patient: z.number(),
+    bills: z.number(),
+    createdAt: z.number(),
+    updatedAt: z.number()
+  }).optional(),
+  _sum: z.object({
+    id: z.number().nullable(),
+    billId: z.number().nullable(),
+    appointmentId: z.number().nullable(),
+    discount: z.number().nullable(),
+    totalAmount: z.number().nullable(),
+    amountPaid: z.number().nullable(),
+    receiptNumber: z.number().nullable()
+  }).nullable().optional(),
+  _avg: z.object({
+    id: z.number().nullable(),
+    billId: z.number().nullable(),
+    appointmentId: z.number().nullable(),
+    discount: z.number().nullable(),
+    totalAmount: z.number().nullable(),
+    amountPaid: z.number().nullable(),
+    receiptNumber: z.number().nullable()
+  }).nullable().optional(),
+  _min: z.object({
+    id: z.number().int().nullable(),
+    billId: z.number().int().nullable(),
+    patientId: z.string().nullable(),
+    appointmentId: z.number().int().nullable(),
+    billDate: z.date().nullable(),
+    paymentDate: z.date().nullable(),
+    discount: z.number().nullable(),
+    totalAmount: z.number().nullable(),
+    amountPaid: z.number().nullable(),
+    receiptNumber: z.number().int().nullable(),
+    createdAt: z.date().nullable(),
+    updatedAt: z.date().nullable()
+  }).nullable().optional(),
+  _max: z.object({
+    id: z.number().int().nullable(),
+    billId: z.number().int().nullable(),
+    patientId: z.string().nullable(),
+    appointmentId: z.number().int().nullable(),
+    billDate: z.date().nullable(),
+    paymentDate: z.date().nullable(),
+    discount: z.number().nullable(),
+    totalAmount: z.number().nullable(),
+    amountPaid: z.number().nullable(),
+    receiptNumber: z.number().int().nullable(),
+    createdAt: z.date().nullable(),
+    updatedAt: z.date().nullable()
+  }).nullable().optional()});
